@@ -17,7 +17,7 @@ Son rôle est de permettre:
 
 ![Page d'accueil](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
  
-## Installer en local
+## Installation en local
 
 Cloner le projet
 
