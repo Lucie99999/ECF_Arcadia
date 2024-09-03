@@ -15,7 +15,7 @@ Son rôle est de permettre:
 
 ## Captures d'écran de l'application
 
-![Page d'accueil](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Page d'accueil](/Users/maison/Desktop/Capture d’écran 2024-09-03 à 14.38.09.png)
  
 ## Installation en local
 
