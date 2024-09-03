@@ -13,9 +13,9 @@ Son rôle est de permettre:
 
 - [@ Lucie Saurel](https://github.com/Lucie99999)
 
-## Captures d'écran de l'application
+## Capture d'écran de la page d'accueil de l'application
 
-![Page d'accueil](/Users/maison/Desktop/Capture d’écran 2024-09-03 à 14.38.09.png)
+![Page d'accueil](./assets/pictures/page_accueil_arcadia.png)
  
 ## Installation en local
 
