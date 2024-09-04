@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--J'intègre le framework Bootstrap à mon projet-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Je lie mon fichier de style CSS à mon fichier HTML.-->
+    <link rel="stylesheet" href="assets/css/index.css"/>
+    <title>Bienvenue au zoo Arcadia</title>
+</head>
+<body>
+    <header>
+        <!--On insère notre navbar-->
+        <nav class="navbar navbar-expand-lg justify-content-between">
+                <img class="logo" src="./assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="container-fluid d-flex flex-row justify-content-between mx-3 mb-2 mb-lg-0">
+                        <a class="nav-link link-offset-3" aria-current="page" href="#">Habitats</a>
+                        <a class="nav-link link-offset-3" aria-current="page" href="#">Animaux</a>
+                        <a class="nav-link link-offset-3" aria-current="page" href="#">Services</a>
+                        <a class="nav-link link-offset-3" aria-current="page" href="#">Informations pratiques</a>
+                        <a class="nav-link link-offset-3" aria-current="page" href="#">Contact</a>
+                        <a class="nav-link link-offset-3" aria-current="page" href="#">🔒 Espace pro</a>
+                    </ul>
+                </div>
+        </nav>
+    </header>
+    <main>
+        <!--On met le titre.-->
+        <h1>Bienvenue au zoo Arcadia</h1>
+
+        <!--On insère le caroussel général du zoo.-->
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./assets/pictures/global_zoo/pexels-guerrero-de-la-luz-346901328-24991332.jpg" class="d-block w-100" alt="Vue globale du zoo, habitat Savane">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/pictures/global_zoo/pexels-evelina-ulickaite-3892657-24994444.jpg" class="d-block w-100" alt="Femme avec des chèvres">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/pictures/global_zoo/pexels-zoosnow-803412-1680214.jpg" class="d-block w-100" alt="Vue sur le marais, ensemble de flamants roses">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!--On insère le texte d'introduction-->
+        <p class="introduction_text">Situé à 10 minutes de la forêt de Brocéliande, le <span class="bold">zoo Arcadia</span>, le plus grand parc animalier de Bretagne,invite petits et grands à découvrir dans un cadre naturel exceptionnel de 80 hectares,+ de 1000 animaux à travers d’incroyables aventures...</p>
+
+        <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
+        <div class="container-fluid text-end">
+            <div class="row">
+                <div class="col-6 col-md-4"></div>
+                <div class="col-6 col-md-4">
+                    <h2>Nos habitats</h2>
+                </div>
+                <div class="col-6 col-md-4 pe-4">
+                    <button type="button" class="btn" onclick="window.location.href ='#';">Découvrez tous nos habitats</button>
+                </div>
+            </div>
+        </div>
+
+        <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
+        <div class="container-fluid text-end">
+            <div class="row">
+                <div class="col-6 col-md-4"></div>
+                <div class="col-6 col-md-4">
+                    <h2>Nos animaux</h2>
+                </div>
+                <div class="col-6 col-md-4 pe-4">
+                    <button type="button" class="btn" onclick="window.location.href ='#';">Découvrez tous nos animaux</button>
+                </div>
+            </div>
+        </div>
+
+        <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
+        <div class="container-fluid text-end">
+            <div class="row">
+                <div class="col-6 col-md-4"></div>
+                <div class="col-6 col-md-4">
+                    <h2>Nos services</h2>
+                </div>
+                <div class="col-6 col-md-4 pe-4">
+                    <button type="button" class="btn" onclick="window.location.href ='#';">Découvrez tous nos services</button>
+                </div>
+            </div>
+        </div>
+
+        <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
+        <div class="container-fluid text-end">
+            <div class="row">
+                <div class="col-6 col-md-4"></div>
+                <div class="col-6 col-md-4">
+                    <h2>Avis clients</h2>
+                </div>
+                <div class="col-6 col-md-4 pe-4">
+                    <button type="button" class="btn" onclick="window.location.href ='#';">Donnez votre avis</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-1 me-4">
+                    <a href="index.html">
+                        <img class="logo" src="./assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
+                    </a>
+                </div>
+                <div class="col-2 mb-3">
+                    <p class="bold">VENIR</p>
+                    <p>Zoo Arcadia</p>
+                    <p>Route de Brocéliande</p>
+                    <p>56800 CAMPENEAC</p>
+                    <a href="#">Accéder au parc</a>
+                </div>
+                <div class="col text-center align-self-center">
+                    <p>Suivez-nous sur les réseaux !</p>
+                    <div class="d-flex flex-row justify-content-center">
+                        <a class="mx-2" href="#">
+                            <i class="fa-brands fa-facebook" style="color: #0056d6;"></i>
+                        </a>
+                        <a class="mx-2" href="#">
+                            <i class="fa-brands fa-x-twitter" style="color: #000000;"></i>
+                        </a>
+                        <a class="mx-2" href="#">
+                            <i class="fa-brands fa-instagram" style="color: #FFD43B;"></i>
+                        </a>
+                        <a class="mx-2" href="#">
+                            <i class="fa-brands fa-pinterest" style="color: #e32400;"></i>
+                        </a>
+                        <a class="mx-2" href="#">
+                            <i class="fa-brands fa-tiktok" style="color: #000000;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <p>Horaires</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex flex-row justify-content-between px-4 pb-3">
+                    <a class="link-offset-3 footer_link" href="index.html">©️ Arcadia 2024</a>
+                    <a class="link-offset-3 footer_link" href="#">Mentions légales</a>
+                    <a class="link-offset-3 footer_link" href="#">Données personnelles</a>
+                    <a class="link-offset-3 footer_link" href="#">Politique de gestion des cookies</a>
+                    <a class="link-offset-3 footer_link" href="#">CGV</a>
+                    <a class="link-offset-3 footer_link" href="#">Règlement intérieur</a>
+                    <a class="link-offset-3 footer_link" href="#">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--J'intègre mon script Fontawesome pour les icônes.-->
+    <script src="https://kit.fontawesome.com/9cdb1625d6.js" crossorigin="anonymous"></script>
+    <!--J'intègre le framework Bootstrap à mon projet.-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
