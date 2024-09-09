@@ -69,9 +69,9 @@ CREATE TABLE pictures(
     pictureID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(50) NOT NULL,
     path VARCHAR(250) NOT NULL,
-    animalID INT(11),
-    habitatID INT(11),
-    serviceID INT(11),
+    animalID INT(11) DEFAULT NULL,
+    habitatID INT(11) DEFAULT NULL,
+    serviceID INT(11) DEFAULT NULL,
     FOREIGN KEY (animalID) REFERENCES animals(animalID),
     FOREIGN KEY (habitatID) REFERENCES habitats(habitatID),
     FOREIGN KEY (serviceID) REFERENCES services(serviceID)
@@ -80,15 +80,15 @@ CREATE TABLE pictures(
 -- Création de la table "users" pour stocker les informations des utilisateurs
 
 CREATE TABLE users(
-                      userID CHAR(36) NOT NULL PRIMARY KEY,
-                      name VARCHAR(50) NOT NULL,
-                      firstname VARCHAR(50) NOT NULL,
-                      email VARCHAR(50) NOT NULL UNIQUE,
-                      password VARCHAR(60) NOT NULL,
-                      createdAt DATETIME NOT NULL,
-                      updatedAT DATETIME,
-                      roleID INT(11) NOT NULL,
-                      FOREIGN KEY (roleID) REFERENCES roles(roleID)
+    userID CHAR(36) NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(60) NOT NULL,
+    createdAt DATETIME NOT NULL,
+    updatedAT DATETIME,
+    roleID INT(11) NOT NULL,
+    FOREIGN KEY (roleID) REFERENCES roles(roleID)
 );
 
 -- Création de la table "reports" pour stocker les informations liées aux rapports vétérinaires
@@ -143,4 +143,9 @@ INSERT INTO services(name, description) VALUES
     ('visite des habitats avec un guide (gratuit)','Un guide vous explique toutes les conditions pour survivre dans chaque habitat. Les horaires des visites sont disponibles à l’entrée du parc.'),
     ('visite du zoo en petit train','Notre petit train vous fait faire le tour du parc en 1h avec audioguide. Le point de rendez-vous se situe devant l’enclos des girafes.');
 
+-- On insère des données dans la table "pictures".
 
+INSERT INTO pictures(title, path, habitatID) VALUES
+    ('savane1','./assets/pictures/savane/pexels-rachel-claire-4846091.jpg',1),
+    ('savane2','./assets/pictures/savane/pexels-490714164-28157156.jpg',1),
+    ('savane3','./assets/pictures/savane/pexels-magda-ehlers-pexels-3844917.jpg',1);
