@@ -60,8 +60,8 @@ h1 {
     text-transform: uppercase;
 }
 
-.carousel-inner {
-    height: 422px;
+.carousel-general {
+    height: 450px;
     object-fit: cover;
 }
 
@@ -121,4 +121,9 @@ p {
 .footer_link:hover {
     color: #EF813E;
     text-decoration: underline;
+}
+
+.card-link{
+    color: #5E6826;
+    text-align: center;
 }
