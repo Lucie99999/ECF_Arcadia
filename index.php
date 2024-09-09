@@ -5,12 +5,6 @@ require_once 'config/pdo.php';
 $query_habitats = $pdo->query("SELECT * FROM habitats");
 $habitats = $query_habitats->fetchAll(PDO::FETCH_ASSOC);
 
-/*On fait une requête dans la base de données pour afficher toutes les photos concernant la savane.*/
-$query_savanes = $pdo->prepare("SELECT * FROM pictures WHERE habitatID LIKE :savane");
-$query_savanes->bindValue(':savane',1);
-$query_savanes->execute();
-$savanes = $query_savanes->fetchAll(PDO::FETCH_ASSOC);
-
 $title="Bienvenue au zoo Arcadia";
 require_once "templates/header.php";
 ?>
@@ -66,19 +60,30 @@ require_once "templates/header.php";
                 <?php
                     $i=1;
                     foreach ($habitats as $habitat) {
+
+                        //On récupère l'ID de l'habitat et son nom.
+                        $habitatID = $habitat['habitatID'];
+                        $habitatName = $habitat['name'];
+
+                        //On fait une requête dans la base de données pour afficher toutes les photos concernant l'habitat en question.
+                        $query = $pdo->prepare("SELECT * FROM pictures WHERE habitatID LIKE :idHabitat");
+                        $query->bindValue(':idHabitat',$habitatID);
+                        $query->execute();
+                        $pictures = $query->fetchAll(PDO::FETCH_ASSOC);
+
                 ?>
                     <div class="col-sm-4 mb-3 mb-sm-0 px-5">
                         <div class="card">
                             <div id="carouselCards<?php echo $i ?>" class="carousel slide">
                                 <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="<?php echo $j ?>" class="active" aria-current="true" aria-label="Slide <?php echo $i ?>"></button>
+                                    <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide <?php echo $i ?>"></button>
                                     <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="1" aria-label="Slide <?php echo $i ?>"></button>
-                                    <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="2" aria-label="Slide <?php echo $i ?>"></button>-->
+                                    <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="2" aria-label="Slide <?php echo $i ?>"></button>
                                 </div>
                                 <div class="carousel-inner style="height="50px;">
                                     <?php
                                         $j=1;
-                                        foreach ($savanes as $savane) {
+                                        foreach ($pictures as $picture) {
                                     ?>
                                     <div class="<?php
                                     if ($j==1){
@@ -86,7 +91,7 @@ require_once "templates/header.php";
                                     } else {
                                         echo 'carousel-item';
                                     }?>">
-                                        <img src="<?php echo $savane['path']?>" class="d-block w-100" alt="Image de la savane <?php echo $j ?>">
+                                        <img src="<?php echo $picture['path']?>" class="d-block w-100" alt="Image <?php echo $habitatName?> <?php echo $j ?>">
                                     </div>
                                     <?php
                                     $j=$j+1;
