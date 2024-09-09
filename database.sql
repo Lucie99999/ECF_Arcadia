@@ -9,73 +9,73 @@ USE lsaurel_ecfarcadia;
 -- Création de la table "roles" pour stocker les informations liées aux rôles
 
 CREATE TABLE roles(
-                      roleID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                      name VARCHAR(50) NOT NULL
+    roleID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
 );
 
 -- Création de la table "races" pour stocker les informations liées aux races animales
 
 CREATE TABLE races(
-                      raceID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                      name VARCHAR(50) NOT NULL
+    raceID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
 );
 
 -- Création de la table "services" pour stocker les informations liées aux services
 
 CREATE TABLE services(
-                         serviceID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                         name VARCHAR(50) NOT NULL,
-                         description TEXT NOT NULL
+    serviceID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL
 );
 
 -- Création de la table "habitats" pour stocker les informations des habitats
 
 CREATE TABLE habitats(
-                         habitatID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                         name VARCHAR(50) NOT NULL,
-                         description TEXT NOT NULL,
-                         commentHabitat TEXT,
-                         createdAt DATETIME NOT NULL,
-                         updatedAt DATETIME
+    habitatID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL,
+    commentHabitat TEXT,
+    createdAt DATETIME NOT NULL,
+    updatedAt DATETIME
 );
 
 -- Création de la table "animals" pour stocker les informations liées aux animaux
 
 CREATE TABLE animals(
-                        animalID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                        surname VARCHAR(50) NOT NULL,
-                        raceID INT(11) NOT NULL,
-                        habitatID INT(11) NOT NULL,
-                        createdAt DATETIME NOT NULL,
-                        updatedAt DATETIME,
-                        FOREIGN KEY (raceID) REFERENCES races(raceID),
-                        FOREIGN KEY (habitatID) REFERENCES habitats(habitatID)
+    animalID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    surname VARCHAR(50) NOT NULL,
+    raceID INT(11) NOT NULL,
+    habitatID INT(11) NOT NULL,
+    createdAt DATETIME NOT NULL,
+    updatedAt DATETIME,
+    FOREIGN KEY (raceID) REFERENCES races(raceID),
+    FOREIGN KEY (habitatID) REFERENCES habitats(habitatID)
 );
 
 -- Création de la table "servings" pour stocker les informations liées aux portions alimentaires
 
 CREATE TABLE servings(
-                         servingID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                         foodName VARCHAR(50) NOT NULL,
-                         weight INT(11) NOT NULL,
-                         givenAt DATETIME NOT NULL,
-                         animalID INT(11) NOT NULL,
-                         FOREIGN KEY (animalID) REFERENCES animals(animalID)
+    servingID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    foodName VARCHAR(50) NOT NULL,
+    weight INT(11) NOT NULL,
+    givenAt DATETIME NOT NULL,
+    animalID INT(11) NOT NULL,
+    FOREIGN KEY (animalID) REFERENCES animals(animalID)
 );
 
 -- Création de la table "pictures" pour stocker les informations liées aux images
 
---A refaire --CREATE TABLE pictures(
-                         --pictureID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                         --title VARCHAR(50) NOT NULL,
-                         --file BLOB NOT NULL,
-                         --animalID INT(11),
-                         --habitatID INT(11),
-                         --serviceID INT(11),
-                         --FOREIGN KEY (animalID) REFERENCES animals(animalID),
-                         --FOREIGN KEY (habitatID) REFERENCES habitats(habitatID),
-                         --FOREIGN KEY (serviceID) REFERENCES services(serviceID)
---);
+CREATE TABLE pictures(
+    pictureID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50) NOT NULL,
+    path VARCHAR(250) NOT NULL,
+    animalID INT(11),
+    habitatID INT(11),
+    serviceID INT(11),
+    FOREIGN KEY (animalID) REFERENCES animals(animalID),
+    FOREIGN KEY (habitatID) REFERENCES habitats(habitatID),
+    FOREIGN KEY (serviceID) REFERENCES services(serviceID)
+);
 
 -- Création de la table "users" pour stocker les informations des utilisateurs
 
