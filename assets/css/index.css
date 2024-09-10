@@ -60,9 +60,25 @@ h1 {
     text-transform: uppercase;
 }
 
+.card {
+    background-color: transparent;
+    border: none;
+}
+
 .carousel-general {
     height: 450px;
     object-fit: cover;
+}
+
+.carousel-habitats {
+    height: 200px;
+}
+
+.image-item {
+    border-radius: 10px;
+    height: 200px;
+    /*overflow: hidden;*/
+    /*box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;*/
 }
 
 .introduction_text{
@@ -123,7 +139,31 @@ p {
     text-decoration: underline;
 }
 
-.card-link{
+.card-link:hover{
+    color: #EF813E;
+}
+
+h3 {
     color: #5E6826;
     text-align: center;
+}
+
+h3::first-letter {
+    text-transform: capitalize;
+}
+
+.picture_service {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.indicator-animal {
+    margin-bottom: -1rem;
+}
+
+.carousel-item.active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
