@@ -105,22 +105,10 @@ CREATE TABLE reports(
                         FOREIGN KEY (userID) REFERENCES users(userID)
 );
 
--- On crée un utilisateur de base de données pour cette base de données.
+-- On aurait pu créer manuellement un utilisateur de base de données pour cette base de données.
 
---CREATE USER 'user_php'@'localhost' IDENTIFIED BY 'S*EN*JHJ3ne-zJ@_';
+CREATE USER 'lsaurel_ecf' IDENTIFIED BY 'S*EN*JHJ3ne-zJ@';
 
--- On attribue à l'utilisateur des droits d'accès sur la table "users" de notre base de données.
-
---GRANT SELECT, INSERT, UPDATE, DELETE ON ArcadiaZooBDD.users TO 'user_php'@'localhost';
-
--- On attribue à l'utilisateur des droits d'accès sur la table "roles" de notre base de données.
---GRANT SELECT ON ArcadiaZooBDD.roles TO 'user_php'@'localhost';
-
--- On attribue à l'utilisateur des droits d'accès sur la table "races" de notre base de données.
---GRANT SELECT, INSERT, UPDATE, DELETE ON ArcadiaZooBDD.races TO 'user_php'@'localhost';
-
--- On attribue à l'utilisateur des droits d'accès sur la table "habitats" de notre base de données.
---GRANT SELECT ON ArcadiaZooBDD.habitats TO 'user_php'@'localhost';
 
 -- On insère des données dans la table "roles".
 
