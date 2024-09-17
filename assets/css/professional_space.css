@@ -1,0 +1,15 @@
+figure {
+    width: 300px;
+    height: 175px;
+    opacity: 0.5;
+}
+
+figcaption {
+    color: #EF813E;
+    background-color: rgba(17, 17, 17, 0.75);
+    text-align: center;
+}
+
+figure:hover{
+    opacity: 1;
+}

@@ -1,0 +1,109 @@
+main {
+    top: 104px;
+}
+
+h1 {
+    color: #5E6826;
+    font-family: "Montserrat";
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+}
+
+.carousel-general {
+    height: 450px;
+    object-fit: cover;
+}
+
+.carousel-habitats {
+    height: 200px;
+}
+
+.image-item {
+    border-radius: 10px;
+    height: 200px;
+    /*overflow: hidden;*/
+    /*box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;*/
+}
+
+.introduction_text{
+    text-align: center;
+    color: #5E6826;
+    font-family: "Hind Madurai";
+    font-size: 25px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    color: #5E6826;
+    font-family: "Andika";
+    font-size: 35px;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.btn {
+    background-color: #5E6826;
+    color: #E9DAC4;
+    font-family: "Hind Madurai";
+    font-size: 25px;
+}
+
+.btn:hover {
+    background-color: #5E6826;
+    color: #EF813E;
+}
+
+a {
+    text-decoration: none;
+    color: #E9DAC4;
+}
+
+p {
+    color: #E9DAC4;
+    margin: 0;
+    padding: 0;
+}
+
+.card-link:hover{
+    color: #EF813E;
+}
+
+h3 {
+    color: #5E6826;
+    text-align: center;
+}
+
+h3::first-letter {
+    text-transform: capitalize;
+}
+
+.picture_service {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.indicator-animal {
+    margin-bottom: -1rem;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.carousel-button-animals {
+    width: 5%;
+}
+

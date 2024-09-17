@@ -1,0 +1,49 @@
+textarea {
+    vertical-align: top;
+}
+
+.breadcrumb a, .breadcrumb-item.active, .breadcrumb-item+.breadcrumb-item::before {
+    color: #5E6826;
+}
+
+.breadcrumb a {
+    text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+    color: #EF813E;
+}
+
+/*Paramètre commun à introduction-text de index.css*/
+label {
+    text-align: center;
+    color: #5E6826;
+    font-family: "Hind Madurai";
+    font-size: 25px;
+}
+/* Paramètres en commun avec index.css*/
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    color: #5E6826;
+    font-family: "Montserrat";
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn {
+    background-color: #5E6826;
+    color: #E9DAC4;
+    font-family: "Hind Madurai";
+    font-size: 25px;
+}
+
+.btn:hover {
+    background-color: #5E6826;
+    color: #EF813E;
+}
