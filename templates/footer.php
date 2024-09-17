@@ -2,8 +2,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-1 me-4">
-                    <a href="index.html">
-                        <img class="logo" src="./assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
+                    <a href="<?php echo $path ?>index.php">
+                        <img class="logo" src="<?php echo $path ?>assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
                     </a>
                 </div>
                 <div class="col-2 mb-3">
@@ -50,6 +50,10 @@
             </div>
         </div>
     </footer>
+<!--J'intègre mon script JS à ma page.-->
+<?php if (isset($nameJSsheet)) {?>
+    <script src="<?php echo $path ?>assets/js/<?php echo $nameJSsheet ?>.js"
+<?php } ?>
 <!--J'intègre mon script Fontawesome pour les icônes.-->
 <script src="https://kit.fontawesome.com/9cdb1625d6.js" crossorigin="anonymous"></script>
 <!--J'intègre le framework Bootstrap à mon projet.-->

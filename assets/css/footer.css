@@ -1,0 +1,29 @@
+footer {
+    background-color: #5E6826;
+}
+
+.footer_link {
+    color: #E9DAC4;
+    font-family: "Hind Madurai";
+    font-size: 15px;
+}
+
+.footer_link:hover {
+    color: #EF813E;
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+p {
+    color: #E9DAC4;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #E9DAC4;
+}

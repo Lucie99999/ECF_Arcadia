@@ -1,0 +1,30 @@
+.breadcrumb a, .breadcrumb-item.active, .breadcrumb-item+.breadcrumb-item::before {
+    color: #5E6826;
+}
+
+.breadcrumb a {
+    text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+    color: #EF813E;
+}
+
+label {
+    text-align: center;
+    color: #5E6826;
+    font-family: "Hind Madurai";
+    font-size: 25px;
+}
+
+.btn {
+    background-color: #5E6826;
+    color: #E9DAC4;
+    font-family: "Hind Madurai";
+    font-size: 25px;
+}
+
+.btn:hover {
+    background-color: #5E6826;
+    color: #EF813E;
+}

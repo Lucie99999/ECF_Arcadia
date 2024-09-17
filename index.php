@@ -1,5 +1,6 @@
 <?php
-require_once 'config/pdo.php';
+require_once 'config/pdoSQL.php';
+//require_once 'comment.php';
 
 //On fait une requête dans la base de données pour afficher tous les habitats.
 $query_habitats = $pdo->query("SELECT * FROM habitats");
@@ -13,17 +14,19 @@ $services = $query_services->fetchAll(PDO::FETCH_ASSOC);
 $query_races = $pdo->query("SELECT * FROM races");
 $races= $query_races->fetchAll(PDO::FETCH_ASSOC);
 
-//On détermine le nombre de fois où on va reproduire le schéma de carousel-item pour les animaux.
+//On détermine le nombre de fois où on va reproduire le schéma de carousel-item pour la partie Animaux de la page d'accueil.
 $nbraces=count($races);
 $result=intval($nbraces/3);
-$reste=fmod($nbraces,3);
+$rest=fmod($nbraces,3);
 $nbiterationcarousel = 0;
-if ($reste!==0) {
+if ($rest!==0) {
     $nbiterationcarousel = $result + 1;
 } else {
     $nbiterationcarousel = $result;
 }
 
+$path="./";
+$namestylesheet="index";
 $title="Bienvenue au zoo Arcadia";
 require_once "templates/header.php";
 ?>
@@ -61,12 +64,7 @@ require_once "templates/header.php";
 
         <!--On insère le texte d'introduction-->
         <p class="introduction_text">Situé à 10 minutes de la forêt de Brocéliande, le <span class="bold">zoo Arcadia</span>, le plus grand parc animalier de Bretagne,invite petits et grands à découvrir dans un cadre naturel exceptionnel de 80 hectares,+ de 1000 animaux à travers d’incroyables aventures...</p>
-        <?php
-
-        echo $result;
-        echo $reste;
-        echo $nbiterationcarousel;
-        ?>
+        
         <!--On crée la partie "Habitats" de la page d'accueil.-->
         <div class="container-fluid text-end">
             <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
@@ -97,8 +95,9 @@ require_once "templates/header.php";
 
                 ?>
                     <div class="col-sm-4 mb-3 mb-sm-0 px-5">
-                        <div class="card m3">
+                        <div class="card">
                             <div id="carouselCards<?php echo $i ?>" class="carousel slide">
+                                <!--On crée autant d'indicateurs de caroussel qu'il y a de photos.-->
                                 <div class="carousel-indicators">
                                     <?php
                                         $k=0;
@@ -110,15 +109,13 @@ require_once "templates/header.php";
                                         }
                                     ?>
                                 </div>
+                                <!--On crée autant d'éléments du caroussel qu'il y a de photos.-->
                                 <div class="carousel-inner carousel-habitats">
                                     <?php
                                         $j=1;
                                         foreach ($pictures_habitat as $picture) {
                                     ?>
-                                    <div class="carousel-item<?php
-                                    if ($j==1){
-                                        echo ' active';
-                                    }?>">
+                                    <div class="carousel-item<?php if ($j==1){echo ' active';}?>">
                                         <img src="<?php echo $picture['path']?>" class="d-block w-100 image-item" alt="Image <?php echo $habitatName?> <?php echo $j ?>">
                                     </div>
                                     <?php
@@ -126,6 +123,7 @@ require_once "templates/header.php";
                                     }
                                     ?>
                                 </div>
+                                <!--Boutons suivant et précédent du caroussel -->
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
@@ -135,6 +133,7 @@ require_once "templates/header.php";
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
+                            <!--On inscrit le texte correspondant à chaque carte-->
                             <div class="card-body">
                                 <a href="#" class="card-link"><h3><?php echo $habitat['name']?></h3></a>
                             </div>
@@ -162,23 +161,31 @@ require_once "templates/header.php";
                 <!--On crée un caroussel avec des cartes pour chaque race. On affiche 3 races par slide.-->
                 <div id="carouselExampleIndicatorsAnimals" class="carousel slide">
                     <div class="carousel-indicators indicator-animal">
-                        <button type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <?php
+                        for ($p=0;$p<$nbiterationcarousel;$p++) {
+                        ?>
+                        <button type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide-to="<?php echo $p?>" aria-label="Slide <?php echo ($p+1) ?>" <?php if ($p==0){?>class="active" aria-current="true"<?php } ?>></button>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="carousel-inner">
                         <?php
+                        //On fait une boucle sur le nombre d'itérations des slides du caroussel trouvé plus haut.
                         for ($n=0; $n < $nbiterationcarousel; $n++) {
                         ?>
-                        <div class="carousel-item animals px-5 <?php if ($n==0){?>active<?php }?>">
+                        <div class="carousel-item animals <?php if ($n==0){?>active<?php }?>">
                                 <?php
+                                //On fait une boucle pour récupérer 3 animaux par slide du caroussel.
                                 for ($m=$n*3; $m<3*($n+1); $m++) {
+
+                                    if (isset($races[$m]['raceID'])) {
 
                                     //On récupère l'ID de la race et son nom.
                                     $raceID = $races[$m]['raceID'];
                                     $raceName = $races[$m]['name'];
 
-                                    if (isset($raceID)) {
+
                                     //On fait une requête dans la base de données pour afficher la 1ère photo de la race sélectionnée.
                                     $query_picture_race = $pdo->prepare("SELECT * FROM pictures WHERE raceID LIKE :idRace AND title LIKE :title");
                                     $query_picture_race->bindValue(':idRace',$raceID);
@@ -188,7 +195,7 @@ require_once "templates/header.php";
 
                                 ?>
                                     <!--On insère une carte qui va se répliquer en fonction des races saisies dans la base de données.-->
-                                    <div class="card" style="width: 20rem;">
+                                    <div class="card px-5">
                                         <img src="<?php echo $picture_race['path']?>" class="card-img-top image-item" alt="Image de <?php echo $raceName?>">
                                         <div class="card-body">
                                             <h3 class="card-text"><?php echo $raceName?>s</h3>
@@ -203,11 +210,11 @@ require_once "templates/header.php";
                             }
                         ?>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide="prev">
+                    <button class="carousel-control-prev carousel-button-animals" type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide="next">
+                    <button class="carousel-control-next carousel-button-animals" type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -257,14 +264,21 @@ require_once "templates/header.php";
         <!--On crée la partie "Avis" de la page d'accueil.-->
         <div class="container-fluid text-end">
             <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-6 col-md-4"></div>
                 <div class="col-6 col-md-4">
                     <h2>Avis clients</h2>
                 </div>
                 <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='#';">Donnez votre avis</button>
+                    <button type="button" class="btn" onclick="window.location.href ='<?php echo $path ?>forms/comment.php';">Donnez votre avis</button>
                 </div>
+            </div>
+            <div class="row mt-4">
+                <h3>
+                    <?php
+                        echo 'test';
+                    ?>
+                </h3>
             </div>
         </div>
     </main>

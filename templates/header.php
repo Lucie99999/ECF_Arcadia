@@ -1,4 +1,8 @@
 <?php
+    //On démarre une session si celle-ci n'est pas active.
+    if (session_status() === 1) {
+        session_start();
+    }
 ?>
 <!doctype html>
 <html lang="fr">
@@ -9,8 +13,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--J'intègre le framework Bootstrap à mon projet-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Je lie mon fichier de style CSS pour le header-->
+    <link rel="stylesheet" href="<?php echo $path ?>assets/css/header.css"/>
+    <!--Je lie mon fichier de style CSS pour le footer-->
+    <link rel="stylesheet" href="<?php echo $path ?>assets/css/footer.css"/>
     <!--Je lie mon fichier de style CSS à mon fichier HTML.-->
-    <link rel="stylesheet" href="./assets/css/index.css"/>
+    <link rel="stylesheet" href="<?php echo $path ?>assets/css/<?php echo $namestylesheet ?>.css"/>
     <title>
         <?php
             if (isset($title)) {
@@ -25,7 +33,9 @@
 <header>
     <!--On insère notre navbar-->
     <nav class="navbar navbar-expand-lg justify-content-between">
-        <img class="logo" src="./assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
+        <a href="<?php echo $path ?>index.php">
+            <img class="logo" src="<?php echo $path ?>assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +46,7 @@
                 <a class="nav-link link-offset-3" aria-current="page" href="#">Services</a>
                 <a class="nav-link link-offset-3" aria-current="page" href="#">Informations pratiques</a>
                 <a class="nav-link link-offset-3" aria-current="page" href="#">Contact</a>
-                <a class="nav-link link-offset-3" aria-current="page" href="#">🔒 Espace pro</a>
+                <a class="nav-link link-offset-3" aria-current="page" href="<?php echo $path ?>forms/connection.php">🔒 Espace pro</a>
             </ul>
         </div>
     </nav>
