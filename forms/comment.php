@@ -21,7 +21,7 @@ require_once '../templates/header.php';
     </nav>
 
     <!--On crée le formulaire pour laisser des avis-->
-    <form class="d-flex flex-column align-items-center m-5 px-5" action="../form_validation_comment.php" method="post">
+    <form class="d-flex flex-column align-items-center m-5 px-5" action="../form_validations/form_validation_comment.php" method="post">
         <div class="m-4">
             <label for="surname">Prénom :</label>
             <input type="text" id="surname" name="surname" placeholder="Votre prénom" required>

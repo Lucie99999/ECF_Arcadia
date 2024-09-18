@@ -24,7 +24,7 @@ require_once '../templates/header.php';
     <h1 class="mx-5">Bienvenue sur l'espace professionnel du zoo Arcadia</h1>
 
     <!--On crée le formulaire de connexion-->
-    <form class="d-flex flex-column align-items-center m-5 px-5" action="../form_validation_connection.php" method="post">
+    <form class="d-flex flex-column align-items-center m-5 px-5" action="../form_validations/form_validation_connection.php" method="post">
         <div class="m-4">
             <label for="mail">Email :</label>
             <input type="email" id="mail" name="mail" placeholder="Email">
