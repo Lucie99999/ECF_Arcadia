@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/pdoSQL.php';
+require_once '../config/pdoSQL.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
     if (!$_POST['mail'] || !$_POST['pwd']) {

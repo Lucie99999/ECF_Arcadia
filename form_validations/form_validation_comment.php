@@ -1,6 +1,6 @@
 <?php
 
-require_once './config/noSQL.php';
+require_once '../config/noSQL.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     if (!$_POST['surname'] || !$_POST['stars'] || !$_POST['comment']) {

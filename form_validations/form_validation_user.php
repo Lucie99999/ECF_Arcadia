@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/pdoSQL.php';
+require_once '../config/pdoSQL.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     if (!$_POST['name'] || !$_POST['surname'] || !$_POST['email'] || !$_POST['pwd'] || ($_POST['role'] == 0)) {
