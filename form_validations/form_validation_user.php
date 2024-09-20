@@ -15,9 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
         //On hashe le mot de passe en utilisant BCRYPT
         $statement->bindValue(':password', password_hash($_POST['pwd'], PASSWORD_BCRYPT));
         if ($statement->execute()) {
-            echo 'L\'utilisateur a bien été créé.';
+            $_SESSION['message'] = 'L\'utilisateur a bien été créé.';
+            header('Location:../forms/CRUD_user.php');
         } else {
-            echo 'Impossible de créer l\'utilisateur.';
+            $_SESSION['message'] = 'Impossible de créer l\'utilisateur.';
+            header('Location:../forms/CRUD_user.php');
         }
     }
 }

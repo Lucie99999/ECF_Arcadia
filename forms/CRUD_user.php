@@ -6,6 +6,13 @@ $title="Ajouter un utilisateur";
 require_once '../templates/headerpro.php';
 ?>
     <main class="align-self-center">
+        <?php if (isset($_SESSION['message'])){ ?>
+            <div class="alert alert-warning" role="alert">
+                <?php echo $_SESSION['message']; ?>
+                <?php unset($_SESSION['message']);?>
+            </div>
+        <?php } ?>
+
         <!-- On ajoute le rappel à l'espace professionnel.-->
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">

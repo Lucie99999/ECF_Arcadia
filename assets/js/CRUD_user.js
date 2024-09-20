@@ -13,7 +13,7 @@ choice.addEventListener('change', () => {
         //création du formulaire
         const form = document.createElement('form');
         form.setAttribute('method', 'POST');
-        form.setAttribute('action', '../form_validation_user.php');
+        form.setAttribute('action', '../form_validations/form_validation_user.php');
         form.setAttribute('id', 'creation_form');
         //création du champ Nom
         const label1 = document.createElement('label');
