@@ -59,7 +59,7 @@ php -S localhost:8080
 ```
 Ouvrir un navigateur et saisir l'URL : http://localhost:8080/
 
-- [Manuel d'utilisation](.Livrables/manuel_utilisation.pdf)
+- [Manuel d'utilisation](.Livrables/Manuel d'utilisation.pdf)
 
 ## Déploiement sur Heroku
 
