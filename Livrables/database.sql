@@ -221,7 +221,14 @@ INSERT INTO pictures(title,path,raceID) VALUES
     ('heron1','./assets/pictures/herons/pexels-rzierik-3912764.jpg',9),
     ('salamander1','./assets/pictures/salamanders/pexels-mikolaj-kolodziejczyk-2377168-4102897.jpg',10);
 
+--On modifie la table users en ajoutant la colonne picturePath.
+ALTER TABLE users
+    ADD picturePath VARCHAR(250) DEFAULT NULL;
 
+--On modifie l'utilisateur José pour lui rajouter une photo.
+UPDATE users
+    SET picturePath = './assets/pictures/users/Jose-pexels-italo-melo-881954-2379004.jpg'
+    WHERE email = 'jose.dupont@arcadia.fr';
 
 
 

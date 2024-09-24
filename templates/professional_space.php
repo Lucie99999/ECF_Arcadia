@@ -5,7 +5,6 @@ $title="Espace professionnel";
 require_once '../templates/headerpro.php';
 ?>
 <main>
-    <?php var_dump($_SESSION['user']);?>
     <div class="container-fluid my-4">
         <div class="row">
             <div class="col mx-3">

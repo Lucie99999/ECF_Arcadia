@@ -1,9 +1,19 @@
 <?php
-    //On démarre une session si celle-ci n'est pas active.
+
+//On démarre une session si celle-ci n'est pas active.
     if (session_status() === 1) {
         session_start();
     }
+
+require_once '../config/pdoSQL.php';
+
+//On fait une requête dans la base de données pour récupérer le nom de rôle de l'utilisateur.
+$query_role = $pdo->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
+$query_role->bindValue(':userRoleID',$_SESSION['user']['roleID']);
+$query_role->execute();
+$role= $query_role->fetch(PDO::FETCH_ASSOC);
 ?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -36,12 +46,17 @@
         <a href="<?php echo $path ?>index.php">
             <img class="logo" src="<?php echo $path ?>assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <h1 class="title_pro">Bienvenue <?php echo $_SESSION['user']['firstname'] ?> !</h1>
+        <h1 class="title_pro"><?php
+            if (isset($title_page)) {
+                echo $title_page;
+            } else {
+                echo 'Bienvenue '.$_SESSION['user']['firstname'].' !';
+            }
+            ?> </h1>
+        <img class="profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de José">
+        <p><?php echo $_SESSION['user']['firstname'].' - '.substr($role['name'],5) ?></p>
         <a href="<?php echo $path ?>index.php">
-            <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3 sign_out" style="color: #e9dac4;"></i>
+            <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>
         </a>
     </nav>
 </header>

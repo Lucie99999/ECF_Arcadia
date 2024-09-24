@@ -1,6 +1,5 @@
 <?php
 require_once 'config/pdoSQL.php';
-//require_once 'comment.php';
 
 //On fait une requête dans la base de données pour afficher tous les habitats.
 $query_habitats = $pdo->query("SELECT * FROM habitats");
