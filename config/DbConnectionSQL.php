@@ -15,12 +15,17 @@ class DbConnectionSQL
     */
     public static function getPDO()
     {
-        //On évite des connexions multiples à la base de données.
-        if (self::$pdo !== null) {
+        try {
+            //On évite des connexions multiples à la base de données.
+            if (self::$pdo !== null) {
+                return self::$pdo;
+            } else {
+            self::$pdo = new PDO(self::DSN, self::USER, self::PASSWORD);
             return self::$pdo;
-        } else {
-        self::$pdo = new PDO(self::DSN, self::USER, self::PASSWORD);
-        return self::$pdo;
+            }
+        } catch (PDOException $e) {
+            $_SESSION['message']='Erreur de connexion à la base de données : ' . $e->getMessage();
+            header('location: ../index.php');
         }
     }
 }

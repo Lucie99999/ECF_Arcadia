@@ -29,6 +29,12 @@ if ($rest!==0) {
 }
 ?>
     <main>
+        <?php if (isset($_SESSION['message'])){ ?>
+            <div class="alert alert-warning" role="alert">
+                <?php echo $_SESSION['message']; ?>
+                <?php unset($_SESSION['message']);?>
+            </div>
+        <?php } ?>
         <!--On met le titre.-->
         <h1>Bienvenue au zoo Arcadia</h1>
 

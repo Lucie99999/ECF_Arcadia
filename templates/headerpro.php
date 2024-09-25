@@ -1,8 +1,7 @@
 <?php
-session_start();
 
-//require_once '../config/pdoSQL.php';
 require_once '../config/DbConnectionSQL.php';
+require_once '../config/session.php';
 
 //On fait une requête dans la base de données pour récupérer le nom de rôle de l'utilisateur.
 $query_role = DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
