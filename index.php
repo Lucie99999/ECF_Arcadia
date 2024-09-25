@@ -1,16 +1,17 @@
 <?php
-require_once 'config/pdoSQL.php';
+//require_once 'config/pdoSQL.php';
+require_once 'config/DbConnectionSQL.php';
 
 //On fait une requête dans la base de données pour afficher tous les habitats.
-$query_habitats = $pdo->query("SELECT * FROM habitats");
+$query_habitats = DbConnectionSQL::getPDO()->query("SELECT * FROM habitats");
 $habitats = $query_habitats->fetchAll(PDO::FETCH_ASSOC);
 
 //On fait une requête dans la base de données pour afficher tous les services.
-$query_services = $pdo->query("SELECT * FROM services");
+$query_services = DbConnectionSQL::getPDO()->query("SELECT * FROM services");
 $services = $query_services->fetchAll(PDO::FETCH_ASSOC);
 
 //On fait une requête dans la base de données pour afficher toutes les races.
-$query_races = $pdo->query("SELECT * FROM races");
+$query_races = DbConnectionSQL::getPDO()->query("SELECT * FROM races");
 $races= $query_races->fetchAll(PDO::FETCH_ASSOC);
 
 //On détermine le nombre de fois où on va reproduire le schéma de carousel-item pour la partie Animaux de la page d'accueil.
@@ -87,7 +88,7 @@ require_once "templates/header.php";
                         $habitatName = $habitat['name'];
 
                         //On fait une requête dans la base de données pour afficher toutes les photos concernant l'habitat en question.
-                        $query_picture_habitat = $pdo->prepare("SELECT * FROM pictures WHERE habitatID LIKE :idHabitat");
+                        $query_picture_habitat = DbConnectionSQL::getPDO()->prepare("SELECT * FROM pictures WHERE habitatID LIKE :idHabitat");
                         $query_picture_habitat->bindValue(':idHabitat',$habitatID);
                         $query_picture_habitat->execute();
                         $pictures_habitat = $query_picture_habitat->fetchAll(PDO::FETCH_ASSOC);
@@ -186,7 +187,7 @@ require_once "templates/header.php";
 
 
                                     //On fait une requête dans la base de données pour afficher la 1ère photo de la race sélectionnée.
-                                    $query_picture_race = $pdo->prepare("SELECT * FROM pictures WHERE raceID LIKE :idRace AND title LIKE :title");
+                                    $query_picture_race = DbConnectionSQL::getPDO()->prepare("SELECT * FROM pictures WHERE raceID LIKE :idRace AND title LIKE :title");
                                     $query_picture_race->bindValue(':idRace',$raceID);
                                     $query_picture_race->bindValue(':title','%1');
                                     $query_picture_race->execute();
@@ -243,7 +244,7 @@ require_once "templates/header.php";
                         $serviceName = $service['name'];
 
                         //On fait une requête dans la base de données pour afficher la 1ère photo du service sélectionné.
-                        $query_picture_service = $pdo->prepare("SELECT * FROM pictures WHERE serviceID LIKE :idService AND title LIKE :title");
+                        $query_picture_service = DbConnectionSQL::getPDO()->prepare("SELECT * FROM pictures WHERE serviceID LIKE :idService AND title LIKE :title");
                         $query_picture_service->bindValue(':idService',$serviceID);
                         $query_picture_service->bindValue(':title','%1');
                         $query_picture_service->execute();

@@ -1,6 +1,7 @@
 <?php
 
-require_once '../config/pdoSQL.php';
+//require_once '../config/pdoSQL.php';
+require_once '../config/DbConnectionSQL.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
     if (!$_POST['mail'] || !$_POST['pwd']) {
@@ -8,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
         header('Location:../forms/connection.php');
     } else {
         //On vient vérifier si un utilisateur de la base de données correspond à l'utilisateur saisi dans le formulaire de connexion.
-        $statement = $pdo->prepare("SELECT * FROM users WHERE email = :mail");
+        $statement = DbConnectionSQL::getPDO()->prepare("SELECT * FROM users WHERE email = :mail");
         $statement->bindValue(':mail', $_POST['mail']);
         if ($statement->execute()) {
             $user = $statement->fetch(PDO::FETCH_ASSOC);
