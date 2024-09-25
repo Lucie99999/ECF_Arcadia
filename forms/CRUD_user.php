@@ -9,8 +9,8 @@ require_once '../templates/headerpro.php';
     <main class="align-self-center">
         <?php if (isset($_SESSION['message'])){ ?>
             <div class="alert alert-warning" role="alert">
-                <?php echo $_SESSION['message']; ?>
-                <?php unset($_SESSION['message']);?>
+                <?php echo $_SESSION['message'];
+                      unset($_SESSION['message']);?>
             </div>
         <?php } ?>
 

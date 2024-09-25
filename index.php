@@ -27,12 +27,18 @@ if ($rest!==0) {
 } else {
     $nbiterationcarousel = $result;
 }
+
+//On détruit les données de session utilisateur si elles existent.
+if (isset($_SESSION['user'])){
+    unset($_SESSION['user']);
+    $_SESSION['message']='Vous avez bien été déconnecté.';
+}
 ?>
     <main>
         <?php if (isset($_SESSION['message'])){ ?>
             <div class="alert alert-warning" role="alert">
-                <?php echo $_SESSION['message']; ?>
-                <?php unset($_SESSION['message']);?>
+                <?php echo $_SESSION['message'];
+                      unset($_SESSION['message']);?>
             </div>
         <?php } ?>
         <!--On met le titre.-->
