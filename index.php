@@ -1,5 +1,8 @@
 <?php
-//require_once 'config/pdoSQL.php';
+$path="./";
+$namestylesheet="index";
+$title="Bienvenue au zoo Arcadia";
+require_once "templates/header.php";
 require_once 'config/DbConnectionSQL.php';
 
 //On fait une requête dans la base de données pour afficher tous les habitats.
@@ -24,11 +27,6 @@ if ($rest!==0) {
 } else {
     $nbiterationcarousel = $result;
 }
-
-$path="./";
-$namestylesheet="index";
-$title="Bienvenue au zoo Arcadia";
-require_once "templates/header.php";
 ?>
     <main>
         <!--On met le titre.-->

@@ -1,8 +1,5 @@
 <?php
-    //On démarre une session si celle-ci n'est pas active.
-    if (session_status() === 1) {
-        session_start();
-    }
+session_start();
 ?>
 <!doctype html>
 <html lang="fr">
