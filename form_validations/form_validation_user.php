@@ -1,7 +1,6 @@
 <?php
 
-require_once '../config/DbConnectionSQL.php';
-require_once '../config/session.php';
+require_once '../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     if (!$_POST['name'] || !$_POST['surname'] || !$_POST['email'] || !$_POST['pwd'] || ($_POST['role'] == 0)) {

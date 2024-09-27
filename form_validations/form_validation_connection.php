@@ -1,7 +1,7 @@
 <?php
+$path="../";
 
-require_once '../config/DbConnectionSQL.php';
-require_once '../config/session.php';
+require_once $path.'config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
     if (!$_POST['mail'] || !$_POST['pwd']) {

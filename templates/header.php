@@ -1,5 +1,5 @@
 <?php
-require_once $path.'/config/session.php';
+require_once $path.'config/config.php';
 ?>
 <!doctype html>
 <html lang="fr">

@@ -1,7 +1,7 @@
 <?php
 
-require_once '../config/DbConnectionSQL.php';
-require_once '../config/session.php';
+$path='../';
+require_once $path.'config/config.php';
 
 //On fait une requête dans la base de données pour récupérer le nom de rôle de l'utilisateur.
 $query_role = DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
@@ -50,7 +50,7 @@ $role= $query_role->fetch(PDO::FETCH_ASSOC);
             }
             ?> </h1>
         <img class="profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de José">
-        <p><?php echo $_SESSION['user']['firstname'].' - '.substr($role['name'],5) ?></p>
+        <p>Compte connecté : <?php echo $_SESSION['user']['firstname'].' - '.substr($role['name'],5) ?></p>
         <a href="<?php echo $path ?>index.php">
             <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>
         </a>
