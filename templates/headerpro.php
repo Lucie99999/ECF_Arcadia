@@ -4,7 +4,7 @@ $path='../';
 require_once $path.'config/config.php';
 
 //On fait une requête dans la base de données pour récupérer le nom de rôle de l'utilisateur.
-$query_role = DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
+$query_role = \Config\DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
 $query_role->bindValue(':userRoleID',$_SESSION['user']['roleID']);
 $query_role->execute();
 $role= $query_role->fetch(PDO::FETCH_ASSOC);

@@ -1,5 +1,20 @@
 {
+    "name": "lucie/ecf_arcadia",
+    "description": "Website of zoo Arcadia",
+    "authors": [
+        {
+            "name": "Lucie99999",
+            "email": "lucie.saurel3@orange.fr"
+        }
+    ],
     "require": {
-        "mongodb/mongodb": "^1.19"
+        "mongodb/mongodb": "^1.19",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src",
+            "Config\\": "config"
+        }
     }
 }

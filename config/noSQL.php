@@ -1,7 +1,7 @@
 <?php
 
 //Chargement de l'autoload de Composer
-require '../vendor/autoload.php';
+require_once $path.'vendor/autoload.php';
 
 try {
 

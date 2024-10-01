@@ -1,5 +1,10 @@
 <?php
 
+namespace Config;
+
+use PDO;
+use PDOException;
+
 class DbConnectionSQL
 {
     const DSN = 'mysql:host=mysql-lsaurel.alwaysdata.net;dbname=lsaurel_ecfarcadia';
@@ -27,5 +32,14 @@ class DbConnectionSQL
             $_SESSION['message']='Erreur de connexion à la base de données : ' . $e->getMessage();
             header('location: ../index.php');
         }
+    }
+
+    /*Méthode permettant de protéger les données saisies en base de données*/
+    public static function protectDbData($value){
+
+        $value=htmlspecialchars($value);
+        $value=strip_tags($value);
+
+        return $value;
     }
 }
