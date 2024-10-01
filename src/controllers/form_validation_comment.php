@@ -1,7 +1,7 @@
 <?php
 
 $path='../';
-require_once $path.'config/config.php';
+require_once $path . 'config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     if (!$_POST['surname'] || !$_POST['stars'] || !$_POST['comment']) {

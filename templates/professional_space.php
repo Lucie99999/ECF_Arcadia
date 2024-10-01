@@ -1,5 +1,4 @@
 <?php
-$path="../";
 $namestylesheet="professional_space";
 $title="Espace professionnel";
 require_once '../templates/headerpro.php';
@@ -8,7 +7,7 @@ require_once '../templates/headerpro.php';
     <div class="container-fluid my-4">
         <div class="row">
             <div class="col mx-3">
-                <a href="<?php echo $path ?>forms/CRUD_user.php">
+                <a href="<?php echo $path ?>templates/forms/CRUD_user.php">
                     <figure>
                         <img src="<?php echo $path ?>assets/pictures/pexels-ifaw-5487067.jpg" alt="Image des employés du zoo" width="300" height="175">
                         <figcaption>Employés/vétérinaires</figcaption>
@@ -16,7 +15,7 @@ require_once '../templates/headerpro.php';
                 </a>
             </div>
             <div class="col">
-                <a href="<?php echo $path ?>forms/CRUD_animal.php">
+                <a href="<?php echo $path ?>templates/forms/CRUD_animal.php">
                     <figure>
                         <img src="<?php echo $path ?>assets/pictures/lions/pexels-goran-vrakela-64248-615277.jpg" alt="Image des animaux du zoo" width="300" height="175">
                         <figcaption>Animaux</figcaption>
@@ -24,7 +23,7 @@ require_once '../templates/headerpro.php';
                 </a>
             </div>
             <div class="col">
-                <a href="<?php echo $path ?>forms/CRUD_habitat.php">
+                <a href="<?php echo $path ?>templates/forms/CRUD_habitat.php">
                     <figure>
                         <img src="<?php echo $path ?>assets/pictures/jungle/pexels-ch1276-540006.jpg" alt="Image d'un habitat du zoo" width="300" height="175">
                         <figcaption>Habitats</figcaption>
@@ -32,7 +31,7 @@ require_once '../templates/headerpro.php';
                 </a>
             </div>
             <div class="col">
-                <a href="<?php echo $path ?>forms/CRUD_service.php">
+                <a href="<?php echo $path ?>templates/forms/CRUD_service.php">
                     <figure>
                         <img src="<?php echo $path ?>assets/pictures/restauration/pexels-igor-starkov-233202-799869.jpg" alt="Image d'un restaurant du zoo" width="300" height="175">
                         <figcaption>Services</figcaption>
@@ -42,7 +41,7 @@ require_once '../templates/headerpro.php';
         </div>
         <div class="row mt-4">
             <div class="col mx-3">
-                <a href="<?php echo $path ?>forms/CRUD_hours.php">
+                <a href="<?php echo $path ?>templates/forms/CRUD_hours.php">
                     <figure>
                         <img src="<?php echo $path ?>assets/pictures/pexels-lexi-lauwers-1431940-18267651.jpg" alt="Image d'une horloge" width="300" height="175">
                         <figcaption>Horaires</figcaption>

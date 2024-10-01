@@ -1,8 +1,5 @@
 <?php
 $path="../";
-$namestylesheet="comment";
-$title="Donnez votre avis";
-require_once '../templates/header.php';
 ?>
 <main>
     <?php if (isset($_SESSION['message'])){ ?>
@@ -21,7 +18,7 @@ require_once '../templates/header.php';
     </nav>
 
     <!--On crée le formulaire pour laisser des avis-->
-    <form class="d-flex flex-column align-items-center m-5 px-5" action="../form_validations/form_validation_comment.php" method="post">
+    <form class="d-flex flex-column align-items-center m-5 px-5" action="../../src/controllers/form_validation_comment.php" method="post">
         <div class="m-4">
             <label for="surname">Prénom :</label>
             <input type="text" id="surname" name="surname" placeholder="Votre prénom" required>
@@ -48,6 +45,4 @@ require_once '../templates/header.php';
         </div>
     </form>
 </main>
-<?php
-require_once '../templates/footer.php';
-?>
+

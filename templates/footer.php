@@ -2,7 +2,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-1 me-4">
-                    <a href="<?php echo $path ?>index.php">
+                    <a href="index.php?page=landing_page&title=Bienvenue au Zoo Arcadia!">
                         <img class="logo" src="<?php echo $path ?>assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
                     </a>
                 </div>
@@ -39,7 +39,7 @@
             </div>
             <div class="row">
                 <div class="d-flex flex-row justify-content-between px-4 pb-3">
-                    <a class="link-offset-3 footer_link" href="index.html">©️ Arcadia 2024</a>
+                    <a class="link-offset-3 footer_link" href="index.php?page=landing_page&title=Bienvenue au Zoo Arcadia!">©️ Arcadia 2024</a>
                     <a class="link-offset-3 footer_link" href="#">Mentions légales</a>
                     <a class="link-offset-3 footer_link" href="#">Données personnelles</a>
                     <a class="link-offset-3 footer_link" href="#">Politique de gestion des cookies</a>

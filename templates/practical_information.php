@@ -1,0 +1,1 @@
+<h1>Page informations pratiques</h1>

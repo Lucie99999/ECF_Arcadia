@@ -230,6 +230,8 @@ UPDATE users
     SET picturePath = './assets/pictures/users/Jose-pexels-italo-melo-881954-2379004.jpg'
     WHERE email = 'jose.dupont@arcadia.fr';
 
+--On modifie le chemin d'accès aux photos suite à l'agencement des fichiers en MVC.
+
 
 
 

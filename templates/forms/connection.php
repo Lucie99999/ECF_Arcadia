@@ -1,8 +1,5 @@
 <?php
 $path="../";
-$namestylesheet="connection";
-$title="Connexion à l'espace professionnel";
-require_once '../templates/header.php';
 ?>
 <main>
     <?php if (isset($_SESSION['message'])){ ?>
@@ -24,7 +21,7 @@ require_once '../templates/header.php';
     <h1 class="mx-5">Bienvenue sur l'espace professionnel du zoo Arcadia</h1>
 
     <!--On crée le formulaire de connexion-->
-    <form class="d-flex flex-column align-items-center m-5 px-5" action="../form_validations/form_validation_connection.php" method="post">
+    <form class="d-flex flex-column align-items-center m-5 px-5" action="index.php?page=connection" method="post">
         <div class="m-4">
             <label for="mail">Email :</label>
             <input type="email" id="mail" name="mail" placeholder="Email">
@@ -34,11 +31,8 @@ require_once '../templates/header.php';
             <input type="password" id="pwd" name="pwd" placeholder="Mot de passe">
         </div>
         <div class="m-4">
-            <button type="button" class="btn" onclick="window.location.href ='<?php echo $path ?>index.php';">Annuler</button>
+            <button type="button" class="btn" onclick="window.location.href ='index.php?page=landing_page&title=Bienvenue au Zoo Arcadia!';">Annuler</button>
             <button type="submit" class="btn" >Se connecter</button>
         </div>
     </form>
 </main>
-<?php
-require_once '../templates/footer.php';
-?>

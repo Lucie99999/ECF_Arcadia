@@ -1,7 +1,9 @@
 <?php
+//Chargement de l'autoload de Composer
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$path='../';
-require_once $path.'config/config.php';
+if(session_status() === PHP_SESSION_NONE) session_start();
+$path='../../';
 
 //On fait une requête dans la base de données pour récupérer le nom de rôle de l'utilisateur.
 $query_role = \Config\DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
@@ -39,7 +41,7 @@ $role= $query_role->fetch(PDO::FETCH_ASSOC);
 <header>
     <!--On insère notre navbar-->
     <nav class="navbar navbar-expand-lg justify-content-between">
-        <a href="<?php echo $path ?>index.php">
+        <a href="../../public/index.php?page=landing_page&title=Bienvenue au Zoo Arcadia!">
             <img class="logo" src="<?php echo $path ?>assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
         </a>
         <h1 class="title_pro"><?php
@@ -51,7 +53,7 @@ $role= $query_role->fetch(PDO::FETCH_ASSOC);
             ?> </h1>
         <img class="profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de José">
         <p>Compte connecté : <?php echo $_SESSION['user']['firstname'].' - '.substr($role['name'],5) ?></p>
-        <a href="<?php echo $path ?>index.php">
+        <a href="../../public/index.php?page=landing_page&title=Bienvenue au Zoo Arcadia!">
             <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>
         </a>
     </nav>

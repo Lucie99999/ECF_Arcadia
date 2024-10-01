@@ -85,10 +85,10 @@ class User
                 header('Location:../forms/CRUD_user.php');
             } else {
                 $sql = 'INSERT INTO users(userID, name,firstname,email,password,createdAt,roleID) VALUES (UUID(),:name,:firstname,:email,:password, NOW(), :role)';
-                $statement = \Config\DbConnectionSQL::getPDO()->prepare($sql);
-                $statement->bindValue(':name', \Config\DbConnectionSQL::protectDbData($user->getName()),PDO::PARAM_STR);
-                $statement->bindValue(':firstname', \Config\DbConnectionSQL::protectDbData($user->getFirstname()),PDO::PARAM_STR);
-                $statement->bindValue(':email', \Config\DbConnectionSQL::protectDbData($user->getEmail()),PDO::PARAM_STR);
+                $statement = database\DbConnectionSQL::getPDO()->prepare($sql);
+                $statement->bindValue(':name', database\DbConnectionSQL::protectDbData($user->getName()),PDO::PARAM_STR);
+                $statement->bindValue(':firstname', database\DbConnectionSQL::protectDbData($user->getFirstname()),PDO::PARAM_STR);
+                $statement->bindValue(':email', database\DbConnectionSQL::protectDbData($user->getEmail()),PDO::PARAM_STR);
                 $statement->bindValue(':role', $user->getRole(),PDO::PARAM_INT);
                 //On hashe le mot de passe en utilisant BCRYPT
                 $statement->bindValue(':password', password_hash($user->getPassword(), PASSWORD_BCRYPT));

@@ -1,10 +1,9 @@
 <?php
-$path="../";
-$namestylesheet="CRUD_user";
+$namestylesheet="forms/CRUD_user";
 $nameJSsheet="CRUD_user";
 $title="Gestion des utilisateurs";
 $title_page="Utilisateurs";
-require_once '../templates/headerpro.php';
+require_once '../../templates/headerpro.php';
 ?>
     <main class="align-self-center">
         <?php if (isset($_SESSION['message'])){ ?>
@@ -36,5 +35,5 @@ require_once '../templates/headerpro.php';
         </div>
     </main>
 <?php
-require_once '../templates/footer.php';
+require_once '../../templates/footer.php';
 ?>
