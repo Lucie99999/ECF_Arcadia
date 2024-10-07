@@ -1,4 +1,5 @@
 <?php
+$title="Bienvenue au zoo Arcadia!";
 //On fait une requête dans la base de données pour afficher tous les habitats.
 $query_habitats = \Config\DbConnectionSQL::getPDO()->query("SELECT * FROM habitats");
 $habitats = $query_habitats->fetchAll(PDO::FETCH_ASSOC);
@@ -48,13 +49,13 @@ if (isset($_SESSION['user'])){
             </div>
             <div class="carousel-inner carousel-general">
                 <div class="carousel-item active">
-                    <img src="../assets/pictures/global_zoo/pexels-guerrero-de-la-luz-346901328-24991332.jpg" class="d-block w-100" alt="Vue globale du zoo, habitat Savane">
+                    <img src="assets/pictures/global_zoo/pexels-guerrero-de-la-luz-346901328-24991332.jpg" class="d-block w-100" alt="Vue globale du zoo, habitat Savane">
                 </div>
                 <div class="carousel-item">
-                    <img src="../assets/pictures/global_zoo/pexels-evelina-ulickaite-3892657-24994444.jpg" class="d-block w-100" alt="Femme avec des chèvres">
+                    <img src="assets/pictures/global_zoo/pexels-evelina-ulickaite-3892657-24994444.jpg" class="d-block w-100" alt="Femme avec des chèvres">
                 </div>
                 <div class="carousel-item">
-                    <img src="../assets/pictures/global_zoo/pexels-zoosnow-803412-1680214.jpg" class="d-block w-100" alt="Vue sur le marais, ensemble de flamants roses">
+                    <img src="assets/pictures/global_zoo/pexels-zoosnow-803412-1680214.jpg" class="d-block w-100" alt="Vue sur le marais, ensemble de flamants roses">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsGeneral" data-bs-slide="prev">
@@ -79,7 +80,7 @@ if (isset($_SESSION['user'])){
                     <h2>Nos habitats</h2>
                 </div>
                 <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='index.php?page=habitats';">Découvrez tous nos habitats</button>
+                    <button type="button" class="btn" onclick="window.location.href ='/habitats';">Découvrez tous nos habitats</button>
                 </div>
             </div>
             <!--On insère une carte qui va se répliquer en fonction des habitats saisis dans la base de données.-->
@@ -159,7 +160,7 @@ if (isset($_SESSION['user'])){
                     <h2>Nos animaux</h2>
                 </div>
                 <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='index.php?page=animals';">Découvrez tous nos animaux</button>
+                    <button type="button" class="btn" onclick="window.location.href ='/animals';">Découvrez tous nos animaux</button>
                 </div>
             </div>
             <div class="row mt-4">
@@ -236,7 +237,7 @@ if (isset($_SESSION['user'])){
                     <h2>Nos services</h2>
                 </div>
                 <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='index.php?page=services';">Découvrez tous nos services</button>
+                    <button type="button" class="btn" onclick="window.location.href ='/services';">Découvrez tous nos services</button>
                 </div>
             </div>
             <!--On insère une carte qui va se répliquer en fonction des services saisis dans la base de données.-->
@@ -275,7 +276,7 @@ if (isset($_SESSION['user'])){
                     <h2>Avis clients</h2>
                 </div>
                 <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='index.php?page=forms/comment&title=Donnez votre avis';">Donnez votre avis</button>
+                    <button type="button" class="btn" onclick="window.location.href ='/comment';">Donnez votre avis</button>
                 </div>
             </div>
             <div class="row mt-4">

@@ -23,7 +23,7 @@
     }
 
     //On affiche l'entête de page.
-    require_once $path.'templates/header.php';
+    require_once $path . 'templates/header.php';
 ?>
 <main>
     <?php
@@ -32,5 +32,5 @@
 </main>
 <?php
     //On affiche le bas de page.
-    require_once $path.'templates/footer.php';
+    require_once $path . 'templates/footer.php';
 ?>
