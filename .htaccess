@@ -1,0 +1,4 @@
+#On redirige toutes les pages sur le fichier index.php pour gérer l'affichage comme on le souhaite.
+RewriteEngine On
+RewriteRule .* index.php
+

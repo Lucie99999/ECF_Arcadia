@@ -2,35 +2,48 @@
     session_start();
 
     //Chargement de l'autoload de Composer
-    require_once __DIR__ . '/../vendor/autoload.php';
+    require_once __DIR__ . '/vendor/autoload.php';
 
-    $path='../';
+    //On récupère le nom de l'URL.
+    $uri = $_SERVER['REQUEST_URI'];
+    $uriParts=explode('/',$uri);
 
-    //On récupère le nom de la page dans l'URL.
-    $pageName = $_GET['page'] ?? 'landing_page';
-    $page = 'templates/'.$pageName.'.php';
+    //Si pas d'uriParts, alors on est sur la page d'accueil.
+    if (($uriParts[1])=="") {
+        $uriParts[1]='landingpage';
+        $uriParts[2]='display';
+    }
 
-    //On récupère le titre de la page dans l'URL.
-    $title = $_GET['title'] ?? 'Bienvenue au Zoo Arcadia !';
+    //On supprime la partie 0 de l'URI car elle correspond au slash.
+    unset($uriParts[0]);
+
+    //La partie 1 de l'URI correspond au controller appelé.
+    $controller=ucfirst($uriParts[1]);
+
+    //La partie 2 de l'URI correspond à la méthode appelée.
+    $method=$uriParts[2];
+    $controllerName = 'App\\controllers\\'.$controller;
+    $controller = new $controllerName();
 
     //On récupère le nom du fichier CSS dans l'URL.
-    $namestylesheet = $_GET['page'] ?? 'landing_page';
+    $namestylesheet = $uriParts[1];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $controllerName = 'App\\controllers\\'.ucfirst($pageName);
-        $controller = new $controllerName();
-        $controller->managePostForm($_POST);
+        $controller->$method($_POST);
+    } else {
+        //méthode GET, on récupère le chemin de la page
+        $page = $controller->$method();
     }
 
     //On affiche l'entête de page.
-    require_once $path . 'templates/header.php';
+    require_once 'templates/header.php';
 ?>
 <main>
     <?php
-        require_once $path.$page;
+        require_once $page;
     ?>
 </main>
 <?php
     //On affiche le bas de page.
-    require_once $path . 'templates/footer.php';
+    require_once 'templates/footer.php';
 ?>

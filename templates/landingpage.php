@@ -49,13 +49,13 @@ if (isset($_SESSION['user'])){
             </div>
             <div class="carousel-inner carousel-general">
                 <div class="carousel-item active">
-                    <img src="assets/pictures/global_zoo/pexels-guerrero-de-la-luz-346901328-24991332.jpg" class="d-block w-100" alt="Vue globale du zoo, habitat Savane">
+                    <img src="../assets/pictures/global_zoo/pexels-guerrero-de-la-luz-346901328-24991332.jpg" class="d-block w-100" alt="Vue globale du zoo, habitat Savane">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/pictures/global_zoo/pexels-evelina-ulickaite-3892657-24994444.jpg" class="d-block w-100" alt="Femme avec des chèvres">
+                    <img src="../assets/pictures/global_zoo/pexels-evelina-ulickaite-3892657-24994444.jpg" class="d-block w-100" alt="Femme avec des chèvres">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/pictures/global_zoo/pexels-zoosnow-803412-1680214.jpg" class="d-block w-100" alt="Vue sur le marais, ensemble de flamants roses">
+                    <img src="../assets/pictures/global_zoo/pexels-zoosnow-803412-1680214.jpg" class="d-block w-100" alt="Vue sur le marais, ensemble de flamants roses">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsGeneral" data-bs-slide="prev">

@@ -1,8 +1,6 @@
 <?php
 namespace App\controllers;
 
-$path="../";
-
 //Chargement de l'autoload de Composer
 require_once __DIR__ . '/../../vendor/autoload.php';
 
@@ -44,6 +42,10 @@ class Connection{
                 header('Location:../../templates/forms/connection.php');
             }
         }
+    }
+
+    public function display(){
+        return __DIR__.'/../../templates/connection.php';
     }
 }
 ?>
