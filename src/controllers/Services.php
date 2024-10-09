@@ -9,6 +9,8 @@ class Services
 {
 
     public function display(){
+        $_SESSION['stylesheet']="services";
+        $_SESSION['title']="Nos services";
         return __DIR__.'/../../templates/services.php';
     }
 }

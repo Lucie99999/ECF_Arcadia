@@ -9,6 +9,8 @@ class Animals
 {
 
     public function display(){
+        $_SESSION['stylesheet']="animals";
+        $_SESSION['title']="Nos animaux";
         return __DIR__.'/../../templates/animals.php';
     }
 }

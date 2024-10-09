@@ -23,11 +23,11 @@ if (isset($_SESSION['user'])){
     <!--Je lie mon fichier de style CSS pour le footer-->
     <link rel="stylesheet" href="../assets/css/footer.css"/>
     <!--Je lie mon fichier de style CSS à mon fichier HTML.-->
-    <link rel="stylesheet" href="../assets/css/<?php echo $namestylesheet ?>.css"/>
+    <link rel="stylesheet" href="../assets/css/<?php echo $_SESSION['stylesheet'] ?>.css"/>
     <title>
         <?php
-            if (isset($title)) {
-                echo $title;
+            if (isset($_SESSION['title'])) {
+                echo $_SESSION['title'];
             } else {
                 echo 'Bienvenue au zoo Arcadia';
             }

@@ -1,7 +1,4 @@
 <?php
-$namestylesheet="forms/CRUD_user";
-$nameJSsheet="CRUD_user";
-$title="Gestion des utilisateurs";
 $title_page="Utilisateurs";
 ?>
     <main class="align-self-center">
@@ -15,7 +12,7 @@ $title_page="Utilisateurs";
         <!-- On ajoute le rappel à l'espace professionnel.-->
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo $path ?>templates/professional_space.php">Espace professionnel</a></li>
+                <li class="breadcrumb-item"><a href="/professionalspace/display">Espace professionnel</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Employés / vétérinaires</li>
             </ol>
         </nav>
@@ -33,6 +30,3 @@ $title_page="Utilisateurs";
         <div id="displayChoice">
         </div>
     </main>
-<?php
-require_once '../../templates/footer.php';
-?>

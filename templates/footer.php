@@ -51,8 +51,8 @@
         </div>
     </footer>
 <!--J'intègre mon script JS à ma page.-->
-<?php if (isset($nameJSsheet)) {?>
-    <script src="assets/js/<?php echo $nameJSsheet ?>.js"></script>
+<?php if (isset($_SESSION['JSstylesheet'])) {?>
+    <script src="../assets/js/<?php echo $_SESSION['JSstylesheet'] ?>.js"></script>
 <?php } ?>
 <!--J'intègre mon script Fontawesome pour les icônes.-->
 <script src="https://kit.fontawesome.com/9cdb1625d6.js" crossorigin="anonymous"></script>

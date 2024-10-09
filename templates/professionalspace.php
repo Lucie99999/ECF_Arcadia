@@ -1,12 +1,14 @@
-<?php
-$namestylesheet="professionalspace";
-$title="Espace professionnel";
-?>
 <main>
+    <?php if (isset($_SESSION['message'])){ ?>
+        <div class="alert alert-warning" role="alert">
+            <?php echo $_SESSION['message'];
+            unset($_SESSION['message']);?>
+        </div>
+    <?php } ?>
     <div class="container-fluid my-4">
         <div class="row">
             <div class="col mx-3">
-                <a href="<?php echo $path ?>templates/forms/CRUD_user.php">
+                <a href="/UserManager/display">
                     <figure>
                         <img src="../assets/pictures/pexels-ifaw-5487067.jpg" alt="Image des employés du zoo" width="300" height="175">
                         <figcaption>Employés/vétérinaires</figcaption>

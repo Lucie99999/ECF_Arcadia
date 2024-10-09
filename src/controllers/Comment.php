@@ -29,6 +29,8 @@ class Comment{
 
     //Méthode qui s'exécute pour l'affichage des pages
     public function display(){
+        $_SESSION['stylesheet']="comment";
+        $_SESSION['title']="Donnez votre avis";
         return __DIR__.'/../../templates/comment.php';
     }
 }

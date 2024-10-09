@@ -9,6 +9,8 @@ class Habitats
 {
 
     public function display(){
+        $_SESSION['stylesheet']="habitats";
+        $_SESSION['title']="Nos habitats";
         return __DIR__.'/../../templates/habitats.php';
     }
 }

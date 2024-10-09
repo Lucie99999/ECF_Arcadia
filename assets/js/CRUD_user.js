@@ -6,14 +6,16 @@ choice.addEventListener('change', () => {
     //Si le choix est de créer un utilisateur, alors on affiche le formulaire pour le créer.
     if (choice.value == 0) {
         let form = document.getElementById('creation_form');
-        document.querySelector("#displayChoice").removeChild(form);
+        if (form !== null) {
+            document.querySelector("#displayChoice").removeChild(form);
+        }
         console.log("Le choix par défaut");
     } else if (choice.value == 1) {
         displayChoice.value = "";
         //création du formulaire
         const form = document.createElement('form');
         form.setAttribute('method', 'POST');
-        form.setAttribute('action', '../form_validations/form_validation_user.php');
+        form.setAttribute('action', '/UserManager/createUser');
         form.setAttribute('id', 'creation_form');
         //création du champ Nom
         const label1 = document.createElement('label');
@@ -87,7 +89,7 @@ choice.addEventListener('change', () => {
         const button1 = document.createElement('button');
         button1.setAttribute('type', 'button');
         button1.setAttribute('class', 'btn');
-        button1.setAttribute('onclick', 'window.location.href =CRUD_user.php');
+        button1.setAttribute('onclick', "window.location.href ='/CRUDUSer/display';");
         button1.innerHTML = 'Annuler';
         //création du bouton submit
         const submit1 = document.createElement('button');
@@ -115,11 +117,31 @@ choice.addEventListener('change', () => {
         document.querySelector("#displayChoice").appendChild(form);
     } else if (choice.value == 2) {
         let form = document.getElementById('creation_form');
-        document.querySelector("#displayChoice").removeChild(form);
+        if (form !== null){
+            document.querySelector("#displayChoice").removeChild(form);
+        }
         console.log("C'est le choix 2.");
+        const paragraphe1 = document.createElement('p');
+        paragraphe1.innerHTML = "Voici la liste de tous les employés travaillant actuellement au zoo : ";
+        document.querySelector("#displayChoice").appendChild(paragraphe1);
+        fetch('/UserManager/readAllUsers')
+            .then(response => {
+                if (!response.ok){
+                    throw new Error('Erreur de réseau');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.log('Erreur de fetch'.error);
+            });
     } else if (choice.value == 3) {
         let form = document.getElementById('creation_form');
-        document.querySelector("#displayChoice").removeChild(form);
+        if (form !== null) {
+            document.querySelector("#displayChoice").removeChild(form);
+        }
         console.log("C'est le choix 3.");
     }
 })

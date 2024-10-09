@@ -76,47 +76,27 @@ class User
         $this->_role = $role;
     }
 
-    //Méthode permettant de créer un utilisateur
-    public function createUser(User $user)
+    //Méthode permettant de lire la donnée d'un utilisateur déjà présent en base de données.
+    public function readUser(string $email)
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
-            if (!$user->getName() || !$user->getFirstname() || !$user->getEmail() || !$user->getPassword() || ($user->getRole() == 0)) {
-                $_SESSION['message'] = 'Un des champs est vide, veuillez vérifier la saisie.';
-                header('Location:../forms/CRUD_user.php');
-            } else {
-                $sql = 'INSERT INTO users(userID, name,firstname,email,password,createdAt,roleID) VALUES (UUID(),:name,:firstname,:email,:password, NOW(), :role)';
-                $statement = database\DbConnectionSQL::getPDO()->prepare($sql);
-                $statement->bindValue(':name', database\DbConnectionSQL::protectDbData($user->getName()),PDO::PARAM_STR);
-                $statement->bindValue(':firstname', database\DbConnectionSQL::protectDbData($user->getFirstname()),PDO::PARAM_STR);
-                $statement->bindValue(':email', database\DbConnectionSQL::protectDbData($user->getEmail()),PDO::PARAM_STR);
-                $statement->bindValue(':role', $user->getRole(),PDO::PARAM_INT);
-                //On hashe le mot de passe en utilisant BCRYPT
-                $statement->bindValue(':password', password_hash($user->getPassword(), PASSWORD_BCRYPT));
-                if ($statement->execute()) {
-                    $_SESSION['message'] = 'L\'utilisateur a bien été créé.';
-                    header('Location:../forms/CRUD_user.php');
-                } else {
-                    $_SESSION['message'] = 'Impossible de créer l\'utilisateur.';
-                    header('Location:../forms/CRUD_user.php');
-                }
-            }
+        $sql='SELECT * FROM users WHERE email = :userEmail';
+        $statement = \Config\DbConnectionSQL::getPDO()->prepare($sql);
+        $statement->bindValue(':userEmail',\Config\DbConnectionSQL::protectDbData($email),PDO::PARAM_STR);
+        if ($statement->execute()) {
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+        } else {
+            $_SESSION['message']='L\'utilisateur n\'existe pas.';
         }
     }
 
-    //Méthode permettant de lire la donnée d'un utilisateur déjà présent en base de données.
-    public function readUser(User $user)
-    {
-
-    }
-
     //Méthode permettant de mettre à jour un utilisateur déjà présent en base de données.
-    public function updateUser()
+    public function updateUser(User $user)
     {
 
     }
 
     //Méthode permettant de supprimer un utilisateur
-    public function deleteUser()
+    public function deleteUser(User $user)
     {
 
     }

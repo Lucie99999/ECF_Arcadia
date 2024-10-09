@@ -9,6 +9,8 @@ class ProfessionalSpace
 {
 
     public function display(){
+        $_SESSION['stylesheet']="professionalspace";
+        $_SESSION['title']="Espace professionnel";
         return __DIR__.'/../../templates/professionalspace.php';
     }
 }
