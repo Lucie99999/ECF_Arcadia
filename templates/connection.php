@@ -12,7 +12,7 @@ $path="../";
     <!-- On ajoute le rappel aux pages précédentes.-->
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo $path ?>index.php">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="/landingpage/display">Accueil</a></li>
             <li class="breadcrumb-item active" aria-current="page">Espace professionnel</li>
         </ol>
     </nav>
@@ -21,7 +21,7 @@ $path="../";
     <h1 class="mx-5">Bienvenue sur l'espace professionnel du zoo Arcadia</h1>
 
     <!--On crée le formulaire de connexion-->
-    <form class="d-flex flex-column align-items-center m-5 px-5" action="../index.php" method="post">
+    <form class="d-flex flex-column align-items-center m-5 px-5" action="/connection/managePostForm" method="post">
         <div class="m-4">
             <label for="mail">Email :</label>
             <input type="email" id="mail" name="mail" placeholder="Email">
@@ -31,7 +31,7 @@ $path="../";
             <input type="password" id="pwd" name="pwd" placeholder="Mot de passe">
         </div>
         <div class="m-4">
-            <button type="button" class="btn" onclick="window.location.href ='index.php?page=landing_page&title=Bienvenue au Zoo Arcadia!';">Annuler</button>
+            <button type="button" class="btn" onclick="window.location.href ='/landingpage/display';">Annuler</button>
             <button type="submit" class="btn" >Se connecter</button>
         </div>
     </form>

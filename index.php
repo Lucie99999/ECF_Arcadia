@@ -1,6 +1,12 @@
 <?php
     session_start();
 
+    //On détruit les données de session utilisateur si elles existent.
+    if (isset($_SESSION['user'])){
+        unset($_SESSION['user']);
+        $_SESSION['message']='Vous avez bien été déconnecté.';
+    }
+
     //Chargement de l'autoload de Composer
     require_once __DIR__ . '/vendor/autoload.php';
 
@@ -29,7 +35,7 @@
     $namestylesheet = $uriParts[1];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $controller->$method($_POST);
+        $page = $controller->$method($_POST);
     } else {
         //méthode GET, on récupère le chemin de la page
         $page = $controller->$method();

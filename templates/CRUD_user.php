@@ -3,7 +3,6 @@ $namestylesheet="forms/CRUD_user";
 $nameJSsheet="CRUD_user";
 $title="Gestion des utilisateurs";
 $title_page="Utilisateurs";
-require_once '../../templates/headerpro.php';
 ?>
     <main class="align-self-center">
         <?php if (isset($_SESSION['message'])){ ?>

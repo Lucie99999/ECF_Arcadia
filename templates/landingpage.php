@@ -22,13 +22,6 @@ if ($rest!==0) {
 } else {
     $nbiterationcarousel = $result;
 }
-
-//On détruit les données de session utilisateur si elles existent.
-if (isset($_SESSION['user'])){
-    unset($_SESSION['user']);
-    $_SESSION['message']='Vous avez bien été déconnecté.';
-}
-
 ?>
     <main>
         <?php if (isset($_SESSION['message'])){ ?>
@@ -276,7 +269,7 @@ if (isset($_SESSION['user'])){
                     <h2>Avis clients</h2>
                 </div>
                 <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='/comment';">Donnez votre avis</button>
+                    <button type="button" class="btn" onclick="window.location.href ='/comment/display';">Donnez votre avis</button>
                 </div>
             </div>
             <div class="row mt-4">
