@@ -1,5 +1,9 @@
 footer {
     background-color: #5E6826;
+    z-index: 10;
+    position: relative;
+    bottom:0;
+    width:100%;
 }
 
 .footer_link {
@@ -17,7 +21,7 @@ footer {
     font-weight: bold;
 }
 
-p {
+footer p {
     color: #E9DAC4;
     margin: 0;
     padding: 0;

@@ -1,13 +1,31 @@
+main {
+    position: relative;
+    height:100vh;
+}
+
+main div.row {
+    height:175px;
+}
+
+.col-auto,a,figure {
+    height:100%;
+}
+
 figure {
-    width: 300px;
-    height: 175px;
+    width:300px;
     opacity: 0.5;
+}
+
+figure img {
+    width: 300px;
+    height: 85%;
 }
 
 figcaption {
     color: #EF813E;
     background-color: rgba(17, 17, 17, 0.75);
     text-align: center;
+    height: 15%;
 }
 
 figure:hover{

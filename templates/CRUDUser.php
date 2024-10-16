@@ -27,6 +27,5 @@ $title_page="Utilisateurs";
             </select>
         </form>
         <!--On insère la div qui accueillera l'insertion HTML depuis le fichier JS.-->
-        <div id="displayChoice">
-        </div>
+        <div id="displayChoice"></div>
     </main>

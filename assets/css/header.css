@@ -39,7 +39,7 @@ nav {
     padding-right: 0;
 }
 
-.nav-link {
+.nav-link, header p {
     color: #E9DAC4;
     font-family: "Hind Madurai";
     font-size: 25px;

@@ -37,26 +37,25 @@
     $controllerName = 'App\\controllers\\'.$controller;
     $controller = new $controllerName();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $page = $controller->$method($_POST);
+
+    //méthode GET, on récupère le chemin de la page
+    if (substr($method,0,4) === 'read'){
+        $result=($controller->$method());
+        echo json_encode($result);
     } else {
-        //méthode GET, on récupère le chemin de la page
-        if ($method !== 'display'){
-            $result=($controller->$method());
-            echo json_encode($result);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $page = $controller->$method($_POST);
         } else {
             $page = $controller->$method();
-            //On affiche l'entête de page.
-            require_once 'templates/header.php';
-?>
-            <main>
-                <?php
-                require_once $page;
-                ?>
-            </main>
-<?php
-            //On affiche le bas de page.
-            require_once 'templates/footer.php';
         }
+        //On affiche l'entête de page.
+        require_once 'templates/header.php';
+
+        //On affiche la partie main de la page.
+        require_once $page;
+
+        //On affiche le bas de page.
+        require_once 'templates/footer.php';
     }
+
 ?>

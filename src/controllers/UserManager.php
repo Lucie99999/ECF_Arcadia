@@ -48,7 +48,7 @@ class UserManager
 
     //Cette méthode permet d'afficher tous les utilisateurs en JSON.
     public function readAllUsers(){
-        $sql='SELECT * FROM users';
+        $sql='SELECT users.name AS Nom, users.firstname AS Prénom, users.email AS Email, SUBSTR(roles.name,6) AS Rôle FROM users RIGHT JOIN roles ON users.roleID=roles.roleID';
         $statement = \Config\DbConnectionSQL::getPDO()->prepare($sql);
         if ($statement->execute()) {
             $users = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -56,7 +56,7 @@ class UserManager
             if ($users!==null){
                 $array=[];
                 foreach ($users as $user) {
-                    array_push($array,$user['name'],$user['firstname'],$user['email'],$user['roleID']);
+                    array_push($array,$user['Nom'],$user['Prénom'],$user['Email'],$user['Rôle']);
                     array_push($result,$array);
                     $array=[];
                 }
@@ -67,6 +67,14 @@ class UserManager
         } else {
             $_SESSION['message']='Une erreur s\'est produite.';
         }
+    }
+
+    public function updateUser($user){
+
+    }
+
+    public function deleteUser($user){
+
     }
 
     public function display(){
