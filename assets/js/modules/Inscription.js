@@ -87,7 +87,7 @@ class Inscription {
         const select1 = document.createElement('select');
         select1.setAttribute('id', 'role');
         select1.setAttribute('name', 'role');
-        select1.setAttribute('class', 'form-select');
+        select1.setAttribute('class', 'form-select mb-2');
 
         const option0 = document.createElement('option');
         option0.setAttribute('value', '');
@@ -105,7 +105,7 @@ class Inscription {
 
         const button1 = document.createElement('button');
         button1.setAttribute('type', 'button');
-        button1.setAttribute('class', 'btn');
+        button1.setAttribute('class', 'btn mb-2');
         button1.setAttribute('onclick', "window.location.href ='/UserManager/display';");
         button1.innerHTML = 'Annuler';
 
@@ -113,7 +113,7 @@ class Inscription {
 
         const submit1 = document.createElement('button');
         submit1.setAttribute('type', 'submit');
-        submit1.setAttribute('class', 'btn');
+        submit1.setAttribute('class', 'btn mb-2 ms-2');
         submit1.innerHTML = 'Créer l\'utilisateur';
 
         //On ajoute les éléments au formulaire

@@ -37,29 +37,47 @@ class SearchUsers {
 
     //Méthode permettant de créer un tableau avec les données récupérées.
     createTable(array){
+        //introduction au tableau des utilisateurs
+        const intro = document.createElement('p');
+        intro.innerHTML = "Pour rappel, voici la liste de tous les employés travaillant actuellement au zoo :";
         //création de la structure de la table
         const table1 = document.createElement('table');
         table1.setAttribute('id', 'tableUser');
-        table1.innerHTML = "Pour rappel, voici la liste de tous les employés travaillant actuellement au zoo :";
+        table1.setAttribute('class', 'table table-bordered table-striped');
         //création de la ligne entête du tableau
+        const head = document.createElement('thead');
         const tr1 = document.createElement('tr');
         const th1 = document.createElement('th');
+        th1.setAttribute('scope', 'col');
         const th2 = document.createElement('th');
+        th2.setAttribute('scope', 'col');
         const th3 = document.createElement('th');
+        th3.setAttribute('scope', 'col');
         const th4 = document.createElement('th');
-        th1.innerHTML = "Nom";
-        th2.innerHTML = "Prénom";
-        th3.innerHTML = "Email";
-        th4.innerHTML = "Rôle";
+        th4.setAttribute('scope', 'col');
+        const th5 = document.createElement('th');
+        th5.setAttribute('scope', 'col');
+        th1.innerHTML = "N°";
+        th2.innerHTML = "Nom";
+        th3.innerHTML = "Prénom";
+        th4.innerHTML = "Email";
+        th5.innerHTML = "Rôle";
         //Ajout des éléments au tableau.
+        head.appendChild(tr1);
         tr1.appendChild(th1);
         tr1.appendChild(th2);
         tr1.appendChild(th3);
         tr1.appendChild(th4);
-        table1.appendChild(tr1);
+        tr1.appendChild(th5);
+        table1.appendChild(head);
+        //création du corps du tableau
+        const body = document.createElement('tbody');
         //création d'une ligne pour chaque employé
         for (let i=0; i < array.length; i++) {
             const tr =document.createElement('tr');
+            const th =document.createElement('th');
+            th.setAttribute('scope', 'row');
+            th.innerHTML = i+1;
             const td1 = document.createElement('td');
             td1.innerHTML = array[i][0];
             const td2 = document.createElement('td');
@@ -68,14 +86,18 @@ class SearchUsers {
             td3.innerHTML = array[i][2];
             const td4 = document.createElement('td');
             td4.innerHTML = array[i][3];
+            tr.appendChild(th);
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
-            table1.appendChild(tr);
+            body.appendChild(tr);
+            table1.appendChild(body);
         }
-        //On ajoute le tableau à la div existante du fichier HTML
+        //On ajoute le tableau et l'intro à la div existante du fichier HTML
+        document.querySelector("#displayChoice").appendChild(intro);
         document.querySelector("#displayChoice").appendChild(table1);
+
     }
 }
 

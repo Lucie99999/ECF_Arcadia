@@ -47,7 +47,7 @@ class ConcernedUser {
         input1.setAttribute('id', 'email');
         input1.setAttribute('name', 'email');
         input1.setAttribute('placeholder', 'Email de l\'employé');
-        input1.setAttribute('class', 'form-control');
+        input1.setAttribute('class', 'form-control mb-2');
         input1.setAttribute('required', true);
 
         //On ajoute les éléments au formulaire
@@ -57,7 +57,7 @@ class ConcernedUser {
         //création du reste du formulaire dans le cadre d'une modification d'utilisateur
         if (this.choice==2) {
 
-            //création du champ A modifier
+            //création du sélecteur pour choisir le champ à modifier
 
             const label5 = document.createElement('label');
             label5.setAttribute('for', 'modif');
@@ -66,7 +66,7 @@ class ConcernedUser {
             const select1 = document.createElement('select');
             select1.setAttribute('id', 'field');
             select1.setAttribute('name', 'field');
-            select1.setAttribute('class', 'form-select');
+            select1.setAttribute('class', 'form-select mb-2');
 
             const option0 = document.createElement('option');
             option0.setAttribute('value', '');
@@ -106,7 +106,14 @@ class ConcernedUser {
             form.appendChild(label5);
             form.appendChild(select1);
 
+            //On ajoute une div pour l'élément à modifier : cela nous permettra de le vider à chaque changement de sélection.
+            const divSelect = document.createElement('div');
+            divSelect.setAttribute('id', 'divSelect');
+            form.appendChild(divSelect);
+
             select1.addEventListener('change', () => {
+                //on réinitialise la div
+                divSelect.innerHTML="";
 
                 //création du champ valeur à modifier
 
@@ -114,30 +121,35 @@ class ConcernedUser {
                 label2.setAttribute('for', 'change');
                 label2.setAttribute('class', 'form-label');
                 label2.innerHTML = "Quel nouvelle valeur souhaitez-vous lui attribuer ? ";
+                //On ajoute l'élément à la div
+                divSelect.appendChild(label2);
 
                 //Si le champ à modifier n'est pas le rôle
                 if (select1.value!=5){
                     const input2 = document.createElement('input');
+                    input2.setAttribute('class', 'form-control mb-2');
                     //Si le champ à modifier est nom, prénom ou photo
                     if (select1.value==1 || select1.value==2 || select1.value==6) {
                         input2.setAttribute('type', 'text');
+                        input2.setAttribute('placeholder', 'Saisir la valeur de remplacement');
                         //Si le champ à modifier est l'email
                     } else if (select1.value==3) {
                         input2.setAttribute('type', 'email');
+                        input2.setAttribute('placeholder', 'Email de remplacement');
                         //Si le champ à modifier est le mot de passe
                     } else if (select1.value==4) {
                         input2.setAttribute('type', 'password');
+                        input2.setAttribute('placeholder', 'Mot de passe de remplacement');
                     }
-                    //On ajoute les éléments au formulaire.
-                    form.appendChild(label2);
-                    form.appendChild(input2);
+                    //On ajoute l'élément à la div
+                    divSelect.appendChild(input2);
                 } else {
 
                     //On crée le select s'il s'agit du rôle à modifier.
                     const select2 = document.createElement('select');
                     select2.setAttribute('id', 'change');
                     select2.setAttribute('name', 'change');
-                    select2.setAttribute('class', 'form-select');
+                    select2.setAttribute('class', 'form-select mb-2');
 
                     const option00 = document.createElement('option');
                     option00.setAttribute('value', '');
@@ -155,7 +167,7 @@ class ConcernedUser {
                     select2.appendChild(option00);
                     select2.appendChild(option20);
                     select2.appendChild(option30);
-                    form.appendChild(select2);
+                    divSelect.appendChild(select2);
                 }
             })
         }
@@ -163,7 +175,7 @@ class ConcernedUser {
 
         const button1 = document.createElement('button');
         button1.setAttribute('type', 'button');
-        button1.setAttribute('class', 'btn');
+        button1.setAttribute('class', 'btn mb-2');
         button1.setAttribute('onclick', "window.location.href ='/UserManager/display';");
         button1.innerHTML = 'Annuler';
 
@@ -171,7 +183,7 @@ class ConcernedUser {
 
         const submit1 = document.createElement('button');
         submit1.setAttribute('type', 'submit');
-        submit1.setAttribute('class', 'btn');
+        submit1.setAttribute('class', 'btn mb-2 ms-2');
         if (this.choice==2) {
             submit1.innerHTML = 'Modifier l\'utilisateur';
         } else {
