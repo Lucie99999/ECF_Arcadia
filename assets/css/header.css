@@ -33,6 +33,10 @@ nav {
     padding: 0;
 }
 
+.navbar-collapse {
+    background-color: #5E6826;
+}
+
 .container-fluid {
     padding: 0;
     padding-left: 0;
