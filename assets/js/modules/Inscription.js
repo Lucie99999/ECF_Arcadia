@@ -12,7 +12,6 @@ class Inscription {
     createForm(){
 
         //création du formulaire
-
         const form = document.createElement('form');
         form.setAttribute('method', 'POST');
         form.setAttribute('action', '/UserManager/createUser');
