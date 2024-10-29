@@ -79,7 +79,7 @@ if (isset($_SESSION['user'])){
                         echo 'Bienvenue '.$_SESSION['user']['firstname'].' !';
                     }
                     ?> </h1>
-                <img class="profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de José">
+                <img class="profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de l'employé connecté">
                 <p>Compte connecté : <?php echo $_SESSION['user']['firstname'].' - '.substr($role['name'],5) ?></p>
                 <a href="/landingpage/display">
                     <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>

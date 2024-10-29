@@ -48,6 +48,9 @@ class ConcernedUser {
         input1.setAttribute('name', 'email');
         input1.setAttribute('placeholder', 'Email de l\'employé');
         input1.setAttribute('class', 'form-control mb-2');
+        //On sécurise les entrées utilisateurs.
+        input1.setAttribute('pattern',"[a-z]+-?[a-z]*.[a-z]+-?[a-z]*@arcadia.fr");
+        input1.setAttribute('title',"format d'une adresse email, correspondant à arcadia.fr, les tirets sont acceptés pour les noms et prénoms composés.");
         input1.setAttribute('required', true);
 
         //On ajoute les éléments au formulaire
@@ -128,18 +131,36 @@ class ConcernedUser {
                 if (select1.value!=5){
                     const input2 = document.createElement('input');
                     input2.setAttribute('class', 'form-control mb-2');
+                    input2.setAttribute('id','answer');
+                    input2.setAttribute('name', 'answer');
                     //Si le champ à modifier est nom, prénom ou photo
                     if (select1.value==1 || select1.value==2 || select1.value==6) {
                         input2.setAttribute('type', 'text');
                         input2.setAttribute('placeholder', 'Saisir la valeur de remplacement');
+                        //On sécurise les entrées utilisateurs.
+                        if (select1.value==1){
+                            input2.setAttribute('pattern',"[A-Z]+'?-?[A-Z]+");
+                            input2.setAttribute('title',"Seuls les caractères en majuscule sont acceptés, pas d'accent, noms composés de 2 noms au maximum séparés par un tiret, noms avec apostrophe acceptés");
+                        } else if (select1.value==2){
+                            input2.setAttribute('pattern',"^[A-Z][a-zà-ÿ]+-*[A-Z]*[a-zà-ÿ]*");
+                            input2.setAttribute('title',"Seuls les caractères commençant par une majuscule sont acceptés, les prénoms composés de 2 prénoms sont acceptés (commencer les 2 prénoms avec une majuscule sans espace)");
+                        } else {
+                            input2.setAttribute('disabled',true);
+                        }
                         //Si le champ à modifier est l'email
                     } else if (select1.value==3) {
                         input2.setAttribute('type', 'email');
                         input2.setAttribute('placeholder', 'Email de remplacement');
+                        //On sécurise les entrées utilisateurs.
+                        input2.setAttribute('pattern',"[a-z]+-?[a-z]*.[a-z]+-?[a-z]*@arcadia.fr")
+                        input2.setAttribute('title',"format d'une adresse email, correspondant à arcadia.fr, les tirets sont acceptés pour les noms et prénoms composés.")
                         //Si le champ à modifier est le mot de passe
                     } else if (select1.value==4) {
                         input2.setAttribute('type', 'password');
                         input2.setAttribute('placeholder', 'Mot de passe de remplacement');
+                        //On sécurise les entrées utilisateurs.
+                        input2.setAttribute('pattern',"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\\W)(?!.* ).{8,}$");
+                        input2.setAttribute('title',"Au moins une majuscule, une minuscule, un caractère spécial, un chiffre. Taille de 8 caractères minimum.");
                     }
                     //On ajoute l'élément à la div
                     divSelect.appendChild(input2);
@@ -147,21 +168,21 @@ class ConcernedUser {
 
                     //On crée le select s'il s'agit du rôle à modifier.
                     const select2 = document.createElement('select');
-                    select2.setAttribute('id', 'change');
-                    select2.setAttribute('name', 'change');
+                    select2.setAttribute('id', 'answer');
+                    select2.setAttribute('name', 'answer');
                     select2.setAttribute('class', 'form-select mb-2');
 
                     const option00 = document.createElement('option');
-                    option00.setAttribute('value', '');
+                    option00.setAttribute('value', '*');
                     option00.innerHTML = "Choisissez un rôle";
 
                     const option20 = document.createElement('option');
                     option20.setAttribute('value', '3');
-                    option20.innerHTML = "ROLE_EMP";
+                    option20.innerHTML = "ROLE_EMPLOYE";
 
                     const option30 = document.createElement('option');
                     option30.setAttribute('value', '2');
-                    option30.innerHTML = "ROLE_VET";
+                    option30.innerHTML = "ROLE_VETERINAIRE";
 
                     //On ajoute les éléments au formulaire.
                     select2.appendChild(option00);
