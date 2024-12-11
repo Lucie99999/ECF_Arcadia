@@ -1,4 +1,7 @@
 <?php
+
+use App\controllers\Comment;
+
 $title="Bienvenue au zoo Arcadia!";
 //On fait une requête dans la base de données pour afficher tous les habitats.
 $query_habitats = \Config\DbConnectionSQL::getPDO()->query("SELECT * FROM habitats");
@@ -68,12 +71,12 @@ if ($rest!==0) {
         <div class="container-fluid text-end">
             <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
             <div class="row">
-                <div class="col-6 col-md-4"></div>
-                <div class="col-6 col-md-4">
+                <div class="col-0 col-sm-4"></div>
+                <div class="col-6 col-sm-4">
                     <h2>Nos habitats</h2>
                 </div>
-                <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='/habitats';">Découvrez tous nos habitats</button>
+                <div class="col-6 col-sm-4 pe-4">
+                    <button type="button" class="btn" onclick="window.location.href ='/habitats/display';">Découvrez tous nos habitats</button>
                 </div>
             </div>
             <!--On insère une carte qui va se répliquer en fonction des habitats saisis dans la base de données.-->
@@ -93,51 +96,52 @@ if ($rest!==0) {
                         $pictures_habitat = $query_picture_habitat->fetchAll(PDO::FETCH_ASSOC);
 
                 ?>
-                    <div class="col-sm-4 mb-3 mb-sm-0 px-5">
-                        <div class="card">
-                            <div id="carouselCards<?php echo $i ?>" class="carousel slide">
-                                <!--On crée autant d'indicateurs de caroussel qu'il y a de photos.-->
-                                <div class="carousel-indicators">
-                                    <?php
-                                        $k=0;
-                                        foreach ($pictures_habitat as $picture) {
-                                    ?>
-                                    <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="<?php echo $k ?>" <?php if ($k==0){?>class="active" aria-current="true" <?php } ?> aria-label="Slide <?php echo $i ?>"></button>
-                                    <?php
-                                        $k=$k+1;
-                                        }
-                                    ?>
-                                </div>
-                                <!--On crée autant d'éléments du caroussel qu'il y a de photos.-->
-                                <div class="carousel-inner carousel-habitats">
-                                    <?php
-                                        $j=1;
-                                        foreach ($pictures_habitat as $picture) {
-                                    ?>
-                                    <div class="carousel-item<?php if ($j==1){echo ' active';}?>">
-                                        <img src="<?php echo $picture['path']?>" class="d-block w-100 image-item" alt="Image <?php echo $habitatName?> <?php echo $j ?>">
+                        <div class="col-sm-4 mb-3 mb-sm-0 px-5">
+                            <div class="card">
+                                <div id="carouselCards<?php echo $i ?>" class="carousel slide">
+                                    <!--On crée autant d'indicateurs de caroussel qu'il y a de photos.-->
+                                    <div class="carousel-indicators">
+                                        <?php
+                                            $k=0;
+                                            foreach ($pictures_habitat as $picture) {
+                                        ?>
+                                        <button type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide-to="<?php echo $k ?>"
+                                                <?php if ($k==0){?>class="active" aria-current="true" <?php } ?> aria-label="Slide <?php echo $i ?>"></button>
+                                        <?php
+                                            $k=$k+1;
+                                            }
+                                        ?>
                                     </div>
-                                    <?php
-                                        $j=$j+1;
-                                    }
-                                    ?>
+                                    <!--On crée autant d'éléments du caroussel qu'il y a de photos.-->
+                                    <div class="carousel-inner carousel-habitats">
+                                        <?php
+                                            $j=1;
+                                            foreach ($pictures_habitat as $picture) {
+                                        ?>
+                                        <div class="carousel-item<?php if ($j==1){echo ' active';}?>">
+                                            <img src="<?php echo $picture['path']?>" class="d-block w-100 image-item" alt="Image <?php echo $habitatName?> <?php echo $j ?>">
+                                        </div>
+                                        <?php
+                                            $j=$j+1;
+                                        }
+                                        ?>
+                                    </div>
+                                    <!--Boutons suivant et précédent du carrousel -->
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                                 </div>
-                                <!--Boutons suivant et précédent du caroussel -->
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselCards<?php echo $i ?>" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--On inscrit le texte correspondant à chaque carte-->
-                            <div class="card-body">
-                                <a href="#" class="card-link"><h3><?php echo $habitat['name']?></h3></a>
+                                <!--On inscrit le titre correspondant à chaque habitat-->
+                                <div class="card-body">
+                                    <a href="#" class="card-link"><h3><?php echo $habitat['name']?></h3></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 <?php
                     $i=$i+1;
                     } ?>
@@ -148,12 +152,12 @@ if ($rest!==0) {
         <div class="container-fluid text-end">
             <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
             <div class="row">
-                <div class="col-6 col-md-4"></div>
-                <div class="col-6 col-md-4">
+                <div class="col-0 col-sm-4"></div>
+                <div class="col-6 col-sm-4">
                     <h2>Nos animaux</h2>
                 </div>
-                <div class="col-6 col-md-4 pe-4">
-                    <button type="button" class="btn" onclick="window.location.href ='/animals';">Découvrez tous nos animaux</button>
+                <div class="col-6 col-sm-4 pe-4">
+                    <button type="button" class="btn" onclick="window.location.href ='/animals/display';">Découvrez tous nos animaux</button>
                 </div>
             </div>
             <div class="row mt-4">
@@ -163,7 +167,8 @@ if ($rest!==0) {
                         <?php
                         for ($p=0;$p<$nbiterationcarousel;$p++) {
                         ?>
-                        <button type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide-to="<?php echo $p?>" aria-label="Slide <?php echo ($p+1) ?>" <?php if ($p==0){?>class="active" aria-current="true"<?php } ?>></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicatorsAnimals" data-bs-slide-to="<?php echo $p?>"
+                                aria-label="Slide <?php echo ($p+1) ?>" <?php if ($p==0){?>class="active" aria-current="true"<?php } ?>></button>
                         <?php
                         }
                         ?>
@@ -225,11 +230,11 @@ if ($rest!==0) {
         <div class="container-fluid text-end">
             <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
             <div class="row mt-4">
-                <div class="col-6 col-md-4"></div>
-                <div class="col-6 col-md-4">
+                <div class="col-0 col-sm-4"></div>
+                <div class="col-6 col-sm-4">
                     <h2>Nos services</h2>
                 </div>
-                <div class="col-6 col-md-4 pe-4">
+                <div class="col-6 col-sm-4 pe-4">
                     <button type="button" class="btn" onclick="window.location.href ='/services';">Découvrez tous nos services</button>
                 </div>
             </div>
@@ -264,20 +269,36 @@ if ($rest!==0) {
         <div class="container-fluid text-end">
             <!--On insère un titre secondaire et le bouton pour aller sur la page correspondante.-->
             <div class="row mt-4">
-                <div class="col-6 col-md-4"></div>
-                <div class="col-6 col-md-4">
+                <div class="col-0 col-sm-4"></div>
+                <div class="col-6 col-sm-4">
                     <h2>Avis clients</h2>
                 </div>
-                <div class="col-6 col-md-4 pe-4">
+                <div class="col-6 col-sm-4 pe-4">
                     <button type="button" class="btn" onclick="window.location.href ='/comment/display';">Donnez votre avis</button>
                 </div>
             </div>
             <div class="row mt-4">
-                <h3>
                     <?php
-                        echo 'test';
+                        $objet = new Comment();
+                        $cursor = $objet->readComments();
+                        foreach ($cursor as $comment) {
+                            $nbEtoiles = $comment['stars'];
+                            ?>
+                            <div class="col-sm-4">
+                                <p class="avis">
+                                    <?php
+                                        echo $comment['surname']."<br>";
+                                        for ($r=0;$r<$nbEtoiles;$r++) {?>
+                                            <i class="fa-solid fa-star" style="color: #ef813e;"></i>
+                                    <?php
+                                        }
+                                        echo "<br>".$comment['comments']."<br>"."------";
+                                    ?>
+                                </p>
+                            </div>
+                    <?php
+                        }
                     ?>
-                </h3>
             </div>
         </div>
     </main>

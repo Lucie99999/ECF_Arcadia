@@ -4,7 +4,7 @@
     //Chargement de l'autoload de Composer
     require_once __DIR__ . '/vendor/autoload.php';
 
-    //On récupère le nom de l'URL.
+    //On récupère l'URI.
     $uri = $_SERVER['REQUEST_URI'];
     $uriParts=explode('/',$uri);
 
@@ -19,7 +19,7 @@
     //On supprime la partie 0 de l'URI car elle correspond au slash.
     unset($uriParts[0]);
 
-    //On détruit les données de session utilisateur si elles existent.
+    //On détruit les données de session utilisateur si elles existent et qu'on est en dehors de l'espace professionnel.
     if ((isset($_SESSION['user'])) && (($uriParts[1] !== "UserManager") && ($uriParts[1] !== "professionalspace"))){
         unset($_SESSION['user']);
         $_SESSION['message']='Vous avez bien été déconnecté.';
@@ -31,14 +31,9 @@
     //La partie 2 de l'URI correspond à la méthode appelée.
     $method=$uriParts[2];
 
-    //La partie 3 de l'URI correspond au paramètre qui sera donné à la méthode du controller
-    //$parameter=$uriParts[3] ?? null;
-
     $controllerName = 'App\\controllers\\'.$controller;
     $controller = new $controllerName();
 
-
-    //méthode GET, on récupère le chemin de la page
     if (substr($method,0,4) === 'read'){
         $result=($controller->$method());
         echo json_encode($result);

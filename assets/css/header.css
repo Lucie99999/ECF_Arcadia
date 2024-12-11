@@ -37,10 +37,16 @@ nav {
     background-color: #5E6826;
 }
 
+.navbar-toggler, .navbar-toggler-icon {
+    background-color: #E9DAC4;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 #E9DAC4;
+}
+
 .container-fluid {
     padding: 0;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .nav-link, header p {
@@ -59,9 +65,9 @@ nav {
 }
 
 .title_pro {
-    color: #e9dac4;
+    color: #E9dac4;
     font-family: "Montserrat";
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
     text-transform: uppercase;
 }

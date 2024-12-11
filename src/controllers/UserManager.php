@@ -254,7 +254,7 @@ class UserManager
 
     public function display(){
         $_SESSION['stylesheet']="users";
-        $_SESSION['title']="Gestion des utilisateurs";
+        $_SESSION['title']="Utilisateurs";
         $_SESSION['JSstylesheet']="CRUD_user";
         return __DIR__.'/../../templates/CRUDUser.php';
     }

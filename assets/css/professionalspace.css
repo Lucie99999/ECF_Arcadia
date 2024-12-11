@@ -13,6 +13,10 @@ main div.row {
 
 figure {
     width:300px;
+
+}
+
+.employe, .veterinaire {
     opacity: 0.5;
 }
 
@@ -22,12 +26,12 @@ figure img {
 }
 
 figcaption {
-    color: #EF813E;
+    color: #E9DAC4;
     background-color: rgba(17, 17, 17, 0.75);
     text-align: center;
     height: 15%;
 }
 
-figure:hover{
-    opacity: 1;
+.admin:hover figcaption {
+    color: #EF813E;
 }

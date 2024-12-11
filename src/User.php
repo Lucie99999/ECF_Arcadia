@@ -75,29 +75,4 @@ class User
     {
         $this->_role = $role;
     }
-
-    //Méthode permettant de lire la donnée d'un utilisateur déjà présent en base de données.
-    public function readUser(string $email)
-    {
-        $sql='SELECT * FROM users WHERE email = :userEmail';
-        $statement = \Config\DbConnectionSQL::getPDO()->prepare($sql);
-        $statement->bindValue(':userEmail',\Config\DbConnectionSQL::protectDbData($email),PDO::PARAM_STR);
-        if ($statement->execute()) {
-            $user = $statement->fetch(PDO::FETCH_ASSOC);
-        } else {
-            $_SESSION['message']='L\'utilisateur n\'existe pas.';
-        }
-    }
-
-    //Méthode permettant de mettre à jour un utilisateur déjà présent en base de données.
-    public function updateUser(User $user)
-    {
-
-    }
-
-    //Méthode permettant de supprimer un utilisateur
-    public function deleteUser(User $user)
-    {
-
-    }
 }

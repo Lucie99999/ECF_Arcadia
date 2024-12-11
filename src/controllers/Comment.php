@@ -1,4 +1,5 @@
 <?php
+
 namespace App\controllers;
 
 //Chargement de l'autoload de Composer
@@ -25,6 +26,15 @@ class Comment{
             $_SESSION['message'] = 'Votre avis a bien été enregistré. Vous pourrez le voir sur notre plateforme dans quelques jours suite à approbation de nos services.';
             return __DIR__.'/../../templates/comment.php';
         }
+    }
+
+    public function readComments(){
+        //Sélection de la collection
+        $collection = \Config\DbConnectionNoSQL::getDB()->selectCollection("Comments");
+
+        //Lecture de tous les documents de la collection qui ont le champ 'approved' à true.
+        $result = $collection->find(['approved'=>true],['limit'=>3]);
+        return $result;
     }
 
     //Méthode qui s'exécute pour l'affichage des pages

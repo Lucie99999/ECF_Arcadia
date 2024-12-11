@@ -6,7 +6,9 @@ if (isset($_SESSION['user'])){
     $query_role = \Config\DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
     $query_role->bindValue(':userRoleID',$_SESSION['user']['roleID']);
     $query_role->execute();
-    $role= $query_role->fetch(PDO::FETCH_ASSOC);
+    $role = $query_role->fetch(PDO::FETCH_ASSOC);
+    $nomRole = substr($role['name'],5);
+    $classRole = strtolower(substr($role['name'],5));
 }
 ?>
 <!doctype html>
@@ -17,7 +19,8 @@ if (isset($_SESSION['user'])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--J'intègre le framework Bootstrap à mon projet-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--Je lie mon fichier de style CSS pour le header-->
     <link rel="stylesheet" href="../assets/css/header.css"/>
     <!--Je lie mon fichier de style CSS pour le footer-->
@@ -39,11 +42,13 @@ if (isset($_SESSION['user'])){
     <!--On insère notre navbar-->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
+            <!-- S'il n'y a aucun utilisateur enregistré dans la session, alors on affiche le menu dédié aux visiteurs. -->
             <?php if (!isset($_SESSION['user'])){?>
                 <a class="navbar-brand py-0" href="/landingpage/display">
                     <img class="logo" src="../assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -69,21 +74,15 @@ if (isset($_SESSION['user'])){
                     </ul>
                 </div>
             <?php } else { ?>
-                <a href="/landingpage/display">
-                    <img class="logo" src="../assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
-                </a>
-                <h1 class="title_pro"><?php
-                    if (isset($title_page)) {
-                        echo $title_page;
-                    } else {
-                        echo 'Bienvenue '.$_SESSION['user']['firstname'].' !';
-                    }
-                    ?> </h1>
-                <img class="profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de l'employé connecté">
-                <p>Compte connecté : <?php echo $_SESSION['user']['firstname'].' - '.substr($role['name'],5) ?></p>
-                <a href="/landingpage/display">
-                    <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>
-                </a>
+                    <a class="col-md-1" href="/landingpage/display">
+                        <img class="logo" src="../assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
+                    </a>
+                    <h1 class="d-none d-sm-block col-md-4 title_pro"><?php echo $_SESSION['title'];?> </h1>
+                    <img class="d-none d-lg-block col-md-2 profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de l'employé connecté">
+                    <p class="d-none d-lg-block col-md-3">Compte connecté : <?php echo $_SESSION['user']['firstname'].' - '.$nomRole ?></p>
+                    <a class="col-md-1" href="/landingpage/display">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>
+                    </a>
             <?php } ?>
         </div>
     </nav>

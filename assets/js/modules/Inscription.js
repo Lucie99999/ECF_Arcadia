@@ -22,7 +22,7 @@ class Inscription {
         const label1 = document.createElement('label');
         label1.setAttribute('for', 'name');
         label1.setAttribute('class', 'form-label');
-        label1.innerHTML = "Nom : ";
+        label1.innerText = "Nom : ";
 
         const input1 = document.createElement('input');
         input1.setAttribute('type', 'text');
@@ -31,7 +31,8 @@ class Inscription {
         input1.setAttribute('placeholder', 'Nom de l\'employé');
         input1.setAttribute('class', 'form-control');
         input1.setAttribute('pattern',"[A-Z]+'?-?[A-Z]+");
-        input1.setAttribute('title',"Seuls les caractères en majuscule sont acceptés, pas d'accent, noms composés de 2 noms au maximum séparés par un tiret, noms avec apostrophe acceptés");
+        input1.setAttribute('title',"Seuls les caractères en majuscule sont acceptés, " +
+            "pas d'accent, noms composés de 2 noms au maximum séparés par un tiret, noms avec apostrophe acceptés");
         input1.setAttribute('required', true);
 
         //création du champ Prénom
@@ -39,7 +40,7 @@ class Inscription {
         const label2 = document.createElement('label');
         label2.setAttribute('for', 'surname');
         label2.setAttribute('class', 'form-label');
-        label2.innerHTML = "Prénom : ";
+        label2.innerText = "Prénom : ";
 
         const input2 = document.createElement('input');
         input2.setAttribute('type', 'text');
@@ -48,7 +49,8 @@ class Inscription {
         input2.setAttribute('placeholder', 'Prénom de l\'employé');
         input2.setAttribute('class', 'form-control');
         input2.setAttribute('pattern',"^[A-Z][a-zà-ÿ]+-*[A-Z]*[a-zà-ÿ]*");
-        input2.setAttribute('title',"Seuls les caractères commençant par une majuscule sont acceptés, les prénoms composés de 2 prénoms sont acceptés (commencer les 2 prénoms avec une majuscule sans espace)");
+        input2.setAttribute('title',"Seuls les caractères commençant par une majuscule sont acceptés, " +
+            "les prénoms composés de 2 prénoms sont acceptés (commencer les 2 prénoms avec une majuscule sans espace)");
         input2.setAttribute('required', true);
 
         //création du champ Email
@@ -56,7 +58,7 @@ class Inscription {
         const label3 = document.createElement('label');
         label3.setAttribute('for', 'email');
         label3.setAttribute('class', 'form-label');
-        label3.innerHTML = "Email : ";
+        label3.innerText = "Email : ";
 
         const input3 = document.createElement('input');
         input3.setAttribute('type', 'email');
@@ -65,7 +67,8 @@ class Inscription {
         input3.setAttribute('placeholder', 'Email de l\'employé');
         input3.setAttribute('class', 'form-control');
         input3.setAttribute('pattern',"[a-z]+-?[a-z]*.[a-z]+-?[a-z]*@arcadia.fr");
-        input3.setAttribute('title',"format d'une adresse email, correspondant à arcadia.fr, les tirets sont acceptés pour les noms et prénoms composés.");
+        input3.setAttribute('title',"format d'une adresse email, correspondant à arcadia.fr, " +
+            "les tirets sont acceptés pour les noms et prénoms composés.");
         input3.setAttribute('required', true);
 
         //création du champ Mot de passe
@@ -73,7 +76,7 @@ class Inscription {
         const label4 = document.createElement('label');
         label4.setAttribute('for', 'pwd');
         label4.setAttribute('class', 'form-label');
-        label4.innerHTML = "Mot de passe : ";
+        label4.innerText = "Mot de passe : ";
 
         const input4 = document.createElement('input');
         input4.setAttribute('type', 'password');
@@ -82,14 +85,16 @@ class Inscription {
         input4.setAttribute('placeholder', 'Mot de passe de l\'employé');
         input4.setAttribute('class', 'form-control');
         input4.setAttribute('pattern',"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\\W)(?!.* ).{8,}$");
-        input4.setAttribute('title',"Au moins une majuscule, une minuscule, un caractère spécial, un chiffre. Taille de 8 caractères minimum.");
+        input4.setAttribute('title',"Au moins une majuscule, une minuscule, un caractère spécial, " +
+            "un chiffre. Taille de 8 caractères minimum.");
         input4.setAttribute('required', true);
 
         //création du champ Rôle
 
         const label5 = document.createElement('label');
         label5.setAttribute('for', 'role');
-        label5.innerHTML = "Rôle : ";
+        label5.setAttribute('class','form-label');
+        label5.innerText = "Rôle : ";
 
         const select1 = document.createElement('select');
         select1.setAttribute('id', 'role');
@@ -98,15 +103,15 @@ class Inscription {
 
         const option0 = document.createElement('option');
         option0.setAttribute('value', '*');
-        option0.innerHTML = "Choisissez un rôle";
+        option0.innerText = "Choisissez un rôle";
 
         const option2 = document.createElement('option');
         option2.setAttribute('value', '3');
-        option2.innerHTML = "ROLE_EMP";
+        option2.innerText = "ROLE_EMP";
 
         const option3 = document.createElement('option');
         option3.setAttribute('value', '2');
-        option3.innerHTML = "ROLE_VET";
+        option3.innerText = "ROLE_VET";
 
         //création du bouton annuler
 
@@ -114,14 +119,14 @@ class Inscription {
         button1.setAttribute('type', 'button');
         button1.setAttribute('class', 'btn mb-2');
         button1.setAttribute('onclick', "window.location.href ='/UserManager/display';");
-        button1.innerHTML = 'Annuler';
+        button1.innerText = 'Annuler';
 
         //création du bouton submit
 
         const submit1 = document.createElement('button');
         submit1.setAttribute('type', 'submit');
         submit1.setAttribute('class', 'btn mb-2 ms-2');
-        submit1.innerHTML = 'Créer l\'utilisateur';
+        submit1.innerText = 'Créer l\'utilisateur';
 
         //On ajoute les éléments au formulaire
 

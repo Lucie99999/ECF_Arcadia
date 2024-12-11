@@ -30,7 +30,7 @@ class Connection{
                         unset($user['password']);
                         $_SESSION['user'] = $user;
                         $_SESSION['stylesheet']="professionalspace";
-                        $_SESSION['title']="Espace professionnel";
+                        $_SESSION['title']='Bienvenue '.$_SESSION['user']['firstname'].' !';
                         return __DIR__.'/../../templates/professionalspace.php';
                     } else {
                         $_SESSION['message'] = 'Identifiants invalides';

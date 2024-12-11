@@ -9,7 +9,7 @@ class Contact
 {
 
     public function display(){
-        $_SESSION['stylesheet']="contac";
+        $_SESSION['stylesheet']="contact";
         $_SESSION['title']="Contactez-nous";
         return __DIR__.'/../../templates/contact.php';
     }

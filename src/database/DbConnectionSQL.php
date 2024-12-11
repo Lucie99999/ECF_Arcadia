@@ -26,6 +26,8 @@ class DbConnectionSQL
                 return self::$pdo;
             } else {
             self::$pdo = new PDO(self::DSN, self::USER, self::PASSWORD);
+            self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);
             return self::$pdo;
             }
         } catch (PDOException $e) {
