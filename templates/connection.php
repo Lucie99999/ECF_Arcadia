@@ -20,19 +20,18 @@ $path="../";
     <!--On indique le titre de la page-->
     <h1 class="mx-5">Bienvenue sur l'espace professionnel du zoo Arcadia</h1>
 
+    <!--On crée une div pour gérer les erreurs liées à la connexion.-->
+    <div id="error"></div>
+
     <!--On crée le formulaire de connexion-->
-    <form class="d-flex flex-column align-items-center m-5 px-5" action="/connection/managePostForm" method="post">
+    <form class="d-flex flex-column align-items-center m-5 px-5" id="loginForm" action="/connection/managePostForm" method="post">
         <div class="m-4">
             <label for="mail">Email :</label>
-            <input type="email" id="mail" name="mail" placeholder="Email"
-                   pattern="[a-z]+-?[a-z]*.[a-z]+-?[a-z]*@arcadia.fr"
-            >
+            <input type="email" id="mail" name="mail" placeholder="Email">
         </div>
         <div class="m-4">
             <label for="pwd">Mot de passe :</label>
-            <input type="password" id="pwd" name="pwd" placeholder="Mot de passe"
-                   pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,}$"
-            >
+            <input type="password" id="pwd" name="pwd" placeholder="Mot de passe">
         </div>
         <div class="m-4">
             <button type="button" class="btn" onclick="window.location.href ='/landingpage/display';">Annuler</button>

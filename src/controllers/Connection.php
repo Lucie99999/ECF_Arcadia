@@ -51,6 +51,7 @@ class Connection{
     public function display(){
         $_SESSION['stylesheet']="connection";
         $_SESSION['title']="Connexion à l'espace professionnel";
+        $_SESSION['JSstylesheet']="securityConnection";
         return __DIR__.'/../../templates/connection.php';
     }
 }

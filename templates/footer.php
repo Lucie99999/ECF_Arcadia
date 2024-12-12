@@ -68,7 +68,8 @@ use App\controllers\Hours;
 <!--J'intègre mon script JS à ma page.-->
 <?php if (isset($_SESSION['JSstylesheet'])) {?>
     <script type=module src="../assets/js/<?php echo $_SESSION['JSstylesheet'] ?>.js"></script>
-<?php } ?>
+<?php }
+    unset($_SESSION['JSstylesheet']);?>
 <!--J'intègre mon script Fontawesome pour les icônes.-->
 <script src="https://kit.fontawesome.com/9cdb1625d6.js" crossorigin="anonymous"></script>
 <!--J'intègre le framework Bootstrap à mon projet.-->
