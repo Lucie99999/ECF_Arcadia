@@ -1,5 +1,6 @@
 #On redirige toutes les pages sur le fichier index.php pour gérer l'affichage comme on le souhaite.
 RewriteEngine On
+#On ne réécrit le lien que si le lien demandé n'est pas un fichier ou un dossier existant.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php
