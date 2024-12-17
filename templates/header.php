@@ -44,7 +44,7 @@ if (isset($_SESSION['user'])){
         <div class="container-fluid">
             <!-- S'il n'y a aucun utilisateur enregistré dans la session, alors on affiche le menu dédié aux visiteurs. -->
             <?php if (!isset($_SESSION['user'])){?>
-                <a class="navbar-brand py-0" href="/landingpage/display">
+                <a class="navbar-brand py-0" href="/LandingPage/display">
                     <img class="logo" src="../assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
@@ -54,33 +54,33 @@ if (isset($_SESSION['user'])){
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav container-fluid justify-content-between mx-3 mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link link-offset-3" aria-current="page" href="/habitats/display">Habitats</a>
+                            <a class="nav-link link-offset-3" aria-current="page" href="/Habitats/display">Habitats</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-offset-3" aria-current="page" href="/animals/display">Animaux</a>
+                            <a class="nav-link link-offset-3" aria-current="page" href="/Animals/display">Animaux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-offset-3" aria-current="page" href="/services/display">Services</a>
+                            <a class="nav-link link-offset-3" aria-current="page" href="/Services/display">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-offset-3" aria-current="page" href="/practicalinformation/display">Informations pratiques</a>
+                            <a class="nav-link link-offset-3" aria-current="page" href="/PracticalInformation/display">Informations pratiques</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-offset-3" aria-current="page" href="/contact/display">Contact</a>
+                            <a class="nav-link link-offset-3" aria-current="page" href="/Contact/display">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-offset-3" aria-current="page" href="/connection/display">🔒 Espace pro</a>
+                            <a class="nav-link link-offset-3" aria-current="page" href="/Connection/display">🔒 Espace pro</a>
                         </li>
                     </ul>
                 </div>
             <?php } else { ?>
-                    <a class="col-md-1" href="/landingpage/display">
+                    <a class="col-md-1" href="/LandingPage/display">
                         <img class="logo" src="../assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
                     </a>
                     <h1 class="d-none d-sm-block col-md-4 title_pro"><?php echo $_SESSION['title'];?> </h1>
                     <img class="d-none d-lg-block col-md-2 profile_picture" src="<?php echo $_SESSION['user']['picturePath'] ?>" alt="Photo de l'employé connecté">
                     <p class="d-none d-lg-block col-md-3">Compte connecté : <?php echo $_SESSION['user']['firstname'].' - '.$nomRole ?></p>
-                    <a class="col-md-1" href="/landingpage/display">
+                    <a class="col-md-1" href="/LandingPage/display">
                         <i class="fa-solid fa-arrow-right-from-bracket fa-3x me-3" style="color: #e9dac4;"></i>
                     </a>
             <?php } ?>

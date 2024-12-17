@@ -5,7 +5,7 @@ use App\controllers\Hours;
         <div class="container-fluid">
             <div class="row justify-content-between">
                 <div class="col-6 col-md-1 my-3 text-center">
-                    <a href="/landingpage/display">
+                    <a href="/LandingPage/display">
                         <img class="logo" src="../assets/pictures/Logo.png" alt="Logo Zoo Arcadia" width="104" height="104">
                     </a>
                 </div>
@@ -14,7 +14,7 @@ use App\controllers\Hours;
                     <p>Zoo Arcadia</p>
                     <p>Route de Brocéliande</p>
                     <p>56800 CAMPENEAC</p>
-                    <a href="/landingpage/display">Accéder au parc</a>
+                    <a href="/LandingPage/display">Accéder au parc</a>
                 </div>
                 <div class="col-12 col-md-4 text-center align-self-center pb-3">
                     <p>Suivez-nous sur les réseaux !</p>
@@ -55,7 +55,7 @@ use App\controllers\Hours;
                 </div>
             </div>
             <div class="row justify-content-center text-center mx-1">
-                    <a class="col-3 col-sm-1 p-0 link-offset-3 footer_link" href="/landingpage/display">©️ Arcadia 2024</a>
+                    <a class="col-3 col-sm-1 p-0 link-offset-3 footer_link" href="/LandingPage/display">©️ Arcadia 2024</a>
                     <a class="col-3 col-sm-2 p-0 link-offset-3 footer_link" href="#">Mentions légales</a>
                     <a class="col-4 col-sm-2 p-0 link-offset-3 footer_link" href="#">Données personnelles</a>
                     <a class="col-5 col-sm-2 p-0 link-offset-3 footer_link" href="#">Gestion des cookies</a>
