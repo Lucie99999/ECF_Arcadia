@@ -15,7 +15,7 @@
     if (($uriParts[1])=="") {
         $uriParts[1]='LandingPage';
         $uriParts[2]='display';
-        $_SESSION['stylesheet']='LandingPage';
+        $_SESSION['stylesheet']='landingpage';
         $_SESSION['title']='Bienvenue au zoo Arcadia!';
     }
 
