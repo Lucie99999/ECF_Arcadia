@@ -1,4 +1,6 @@
 #On redirige toutes les pages sur le fichier index.php pour gérer l'affichage comme on le souhaite.
 RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php
 
