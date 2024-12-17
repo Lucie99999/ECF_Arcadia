@@ -13,9 +13,9 @@
 
     //Si pas d'uriParts, alors on est sur la page d'accueil.
     if (($uriParts[1])=="") {
-        $uriParts[1]='landingpage';
+        $uriParts[1]='LandingPage';
         $uriParts[2]='display';
-        $_SESSION['stylesheet']='landingpage';
+        $_SESSION['stylesheet']='LandingPage';
         $_SESSION['title']='Bienvenue au zoo Arcadia!';
     }
 
