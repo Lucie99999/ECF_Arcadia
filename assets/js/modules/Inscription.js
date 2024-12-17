@@ -11,11 +11,16 @@ class Inscription {
 
     createForm(){
 
+        //Création d'une div pour gérer les erreurs liées à l'inscription.
+        const div = document.createElement('div');
+        div.setAttribute('id','error');
+
         //création du formulaire
         const form = document.createElement('form');
         form.setAttribute('method', 'POST');
         form.setAttribute('action', '/UserManager/createUser');
         form.setAttribute('id', 'creation_form');
+        form.setAttribute('class','js-creation-form');
 
         //création du champ Nom
 
@@ -30,7 +35,6 @@ class Inscription {
         input1.setAttribute('name', 'name');
         input1.setAttribute('placeholder', 'Nom de l\'employé');
         input1.setAttribute('class', 'form-control');
-        input1.setAttribute('pattern',"[A-Z]+'?-?[A-Z]+");
         input1.setAttribute('title',"Seuls les caractères en majuscule sont acceptés, " +
             "pas d'accent, noms composés de 2 noms au maximum séparés par un tiret, noms avec apostrophe acceptés");
         input1.setAttribute('required', true);
@@ -48,7 +52,6 @@ class Inscription {
         input2.setAttribute('name', 'surname');
         input2.setAttribute('placeholder', 'Prénom de l\'employé');
         input2.setAttribute('class', 'form-control');
-        input2.setAttribute('pattern',"^[A-Z][a-zà-ÿ]+-*[A-Z]*[a-zà-ÿ]*");
         input2.setAttribute('title',"Seuls les caractères commençant par une majuscule sont acceptés, " +
             "les prénoms composés de 2 prénoms sont acceptés (commencer les 2 prénoms avec une majuscule sans espace)");
         input2.setAttribute('required', true);
@@ -66,7 +69,6 @@ class Inscription {
         input3.setAttribute('name', 'email');
         input3.setAttribute('placeholder', 'Email de l\'employé');
         input3.setAttribute('class', 'form-control');
-        input3.setAttribute('pattern',"[a-z]+-?[a-z]*.[a-z]+-?[a-z]*@arcadia.fr");
         input3.setAttribute('title',"format d'une adresse email, correspondant à arcadia.fr, " +
             "les tirets sont acceptés pour les noms et prénoms composés.");
         input3.setAttribute('required', true);
@@ -84,7 +86,6 @@ class Inscription {
         input4.setAttribute('name', 'pwd');
         input4.setAttribute('placeholder', 'Mot de passe de l\'employé');
         input4.setAttribute('class', 'form-control');
-        input4.setAttribute('pattern',"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\\W)(?!.* ).{8,}$");
         input4.setAttribute('title',"Au moins une majuscule, une minuscule, un caractère spécial, " +
             "un chiffre. Taille de 8 caractères minimum.");
         input4.setAttribute('required', true);
@@ -146,7 +147,8 @@ class Inscription {
         form.appendChild(button1);
         form.appendChild(submit1);
 
-        //On ajoute le formulaire à la div existante du fichier HTML
+        //On ajoute le formulaire et la div d'erreur à la div existante du fichier HTML
+        document.querySelector("#displayChoice").appendChild(div);
         document.querySelector("#displayChoice").appendChild(form);
     }
 }
