@@ -1,8 +1,6 @@
 <?php
-    echo session_save_path();
-    session_start([
-        'cookie_lifetime'=>86400
-    ]);
+    var_dump(session_save_path());
+    session_start();
 
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
