@@ -1,4 +1,6 @@
 <?php
+    $lifetime=86400;
+    session_set_cookie_params($lifetime);
     session_start();
 
     error_reporting(E_ALL);
