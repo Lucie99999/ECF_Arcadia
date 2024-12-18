@@ -1,7 +1,10 @@
 <?php
-    $lifetime=86400;
-    session_set_cookie_params($lifetime);
-    session_start();
+    session_start( [
+        'cookie_lifetime' => 86400,
+        'cookie_secure' => true,
+        'cookie_httponly' => true,
+        'cookie_samesite' => 'strict',
+    ] );
 
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
@@ -29,10 +32,6 @@
     if ($condition){
         unset($_SESSION['user']);
         $_SESSION['message']='Vous avez bien été déconnecté.';
-        $uriParts[1]='LandingPage';
-        $uriParts[2]='display';
-        $_SESSION['stylesheet']='landingpage';
-        $_SESSION['title']='Bienvenue au zoo Arcadia!';
     }
 
     //La partie 1 de l'URI correspond au controller appelé.
