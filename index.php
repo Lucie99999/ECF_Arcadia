@@ -29,6 +29,10 @@
     if ($condition){
         unset($_SESSION['user']);
         $_SESSION['message']='Vous avez bien été déconnecté.';
+        $uriParts[1]='LandingPage';
+        $uriParts[2]='display';
+        $_SESSION['stylesheet']='landingpage';
+        $_SESSION['title']='Bienvenue au zoo Arcadia!';
     }
 
     //La partie 1 de l'URI correspond au controller appelé.
