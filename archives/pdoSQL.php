@@ -6,7 +6,9 @@ try {
 
     //On démarre une session si elle n'est pas active.
     if (session_status() === 1) {
-        session_start();
+        session_start([
+            'cookie_lifetime'=>86400
+        ]);
     }
 
 } catch (PDOException $e) {

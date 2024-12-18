@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    session_start([
+        'cookie_lifetime'=>86400
+    ]);
 
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
