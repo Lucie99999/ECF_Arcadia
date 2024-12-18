@@ -1,5 +1,4 @@
 <?php
-    var_dump(session_save_path());
     session_start();
 
     error_reporting(E_ALL);
