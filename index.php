@@ -1,4 +1,5 @@
 <?php
+    echo session_save_path();
     session_start([
         'cookie_lifetime'=>86400
     ]);

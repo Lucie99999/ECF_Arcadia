@@ -1,8 +1,4 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start([
-    'cookie_lifetime'=>86400
-]);
-
 //On fait une requête dans la base de données pour récupérer le nom de rôle de l'utilisateur s'il existe.
 if (isset($_SESSION['user'])){
     $query_role = \Config\DbConnectionSQL::getPDO()->prepare('SELECT * FROM roles WHERE roleID LIKE :userRoleID');
