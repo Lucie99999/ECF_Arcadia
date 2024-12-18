@@ -1,12 +1,7 @@
 <?php
-    session_set_cookie_params([
-        'lifetime'=>86400,
-        'secure'=>true,
-        'httponly'=>true,
-        'samesite'=>"Strict"]
-    );
+    ini_set('session.use_only_cookies', '0');
+    //ini_set('session.use_trans_sid','1');
     session_start();
-    var_dump(session_get_cookie_params());
 
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
