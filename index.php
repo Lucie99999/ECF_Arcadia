@@ -25,7 +25,9 @@
     //On détruit les données de session utilisateur si elles existent et qu'on est en dehors de l'espace professionnel.
     var_dump($_SESSION['user']);
     var_dump($uriParts[1]);
-    if ((isset($_SESSION['user'])) && (($uriParts[1] !== "UserManager") && ($uriParts[1] !== "professionalspace"))){
+    $condition = ((isset($_SESSION['user'])) && ($uriParts[1] !== "UserManager") && ($uriParts[1] !== "professionalspace"));
+    var_dump($condition);
+    if ($condition){
         unset($_SESSION['user']);
         $_SESSION['message']='Vous avez bien été déconnecté.';
     }
