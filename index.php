@@ -8,7 +8,6 @@
     session_start();
     var_dump(session_get_cookie_params());
 
-    phpinfo();
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 
