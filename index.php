@@ -28,6 +28,7 @@
     $condition = ((isset($_SESSION['user'])) && ($uriParts[1] !== "UserManager") && ($uriParts[1] !== "professionalspace"));
     var_dump($condition);
     if ($condition){
+        echo "Je passe par là";
         unset($_SESSION['user']);
         $_SESSION['message']='Vous avez bien été déconnecté.';
     }
